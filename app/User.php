@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Support\Facades\Request;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -26,4 +27,23 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public static function login(Request $request){
+        return 'function not implemented';
+    }
+
+    public static function register(Request $request)
+    {
+        return 'register_user not implemented';
+    }
+
+    public static function update_info(Request $request)
+    {
+        return 'update_user not implemented';
+    }
+
+    public static function update_pass(Request $request)
+    {
+        return 'update_pass not implemented';
+    }
 }

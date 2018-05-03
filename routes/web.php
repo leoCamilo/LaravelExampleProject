@@ -11,6 +11,20 @@
 |
 */
 
+use App\User;
+
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('user/login', function (Request $request){
+    $data = User::login($request);
+
+    // add view and other stuffs to show
+
+    return $data;
+});
+
+Route::get('/submit', function () {
+    return view('submit');
 });

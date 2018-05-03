@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;     // see impact
+use Illuminate\Support\Facades\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,12 @@ use Illuminate\Http\Request;
 |
 */
 
+use App\User;
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// var_dump($request);
+
+Route::get('user/login', function (Request $request) { return response()->json(User::login($request)); });
