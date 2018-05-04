@@ -1,0 +1,14 @@
+curl -d 'DATA_HERE'
+
+data json: 		{"name":"leonardo","email":"leo.camilo.ribeiro@gmail.com",password:"123456"}
+data enconded:	name=leonardo&email=leo.camilo.ribeiro@gmail.com&password=123456
+
+-H "Content-Type: application/json"
+-H "Content-Type: application/x-www-form-urlencoded"	[optional]
+
+-X POST http://localhost:8000/api/
+
+ex:
+	curl -d 'name=leonardo&email=leo.camilo.ribeiro@gmail.com' -H "Content-Type: application/x-www-form-urlencoded" -X POST http://localhost:8000/api/user/login
+	curl -d 'name=leonardo&email=leo.camilo.ribeiro@gmail.com&password=123456' -X POST http://localhost:8000/api/user/register
+	curl -d 'email=leo.camilo.ribeiro@gmail.com&password=123456' -X POST http://localhost:8000/api/user/login

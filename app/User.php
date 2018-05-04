@@ -2,7 +2,9 @@
 
 namespace App;
 
-use Illuminate\Support\Facades\Request;
+use Validator;
+
+use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -28,13 +30,43 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public static function login(Request $request){
-        return 'function not implemented';
+    public static function login(Request $request)
+    {
+        return [
+            'name' => $request->name,
+            'email' => $request->email,
+            'token' => 'hfa91289AHSD!2h1'
+        ];
     }
 
     public static function register(Request $request)
     {
-        return 'register_user not implemented';
+        $payload = [ 'validation_error' => 0, 'sql_error' => 0, 'data' => NULL ];
+
+        try
+        {
+            $validator = Validator::make($request->all(),
+            [
+                'name' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255|unique:users',
+                'password' => 'required|string|min:6'
+            ]);
+    
+            if ($validator->fails())
+            {
+                $payload['validation_error'] = $validator->errors();
+            }
+            else
+            {
+                $payload['data'] = User::create($validator->validate());
+            }
+        }
+        catch (\Illuminate\Database\QueryException $e)
+        {
+            $payload['sql_error'] = $e->errorInfo[1];           // 1062 - duplicate entry
+        }
+
+        return $payload;
     }
 
     public static function update_info(Request $request)

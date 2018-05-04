@@ -1,7 +1,7 @@
 <?php
 
-// use Illuminate\Http\Request;     // see impact
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +20,18 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// var_dump($request);
+// Route::get('user/login', function (Request $request)
+// {
+//     // test stuff here...
+//     // var_dump($request);
 
-Route::get('user/login', function (Request $request) { return response()->json(User::login($request)); });
+//     return response()->json(User::login($request));
+// });
+
+// Route::post('user/login', function (Request $request) { return response()->json(User::login($request)); });
+Route::post('user/register', function (Request $request) { return response()->json(User::register($request)); });
+
+Route::post('user/login', function (Request $request) 
+{
+
+});
