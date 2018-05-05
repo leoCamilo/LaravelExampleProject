@@ -21,7 +21,7 @@ return [
     |
     */
 
-    'secret' => env('JWT_SECRET', 'barwFL6yhkXvakrrfSmlzZGymDTezJGp'),
+    'secret' => env('JWT_SECRET'),
 
     /*
     |--------------------------------------------------------------------------
@@ -144,7 +144,8 @@ return [
         |
         */
 
-        'jwt' => 'Tymon\JWTAuth\Providers\JWT\NamshiAdapter',
+        'jwt' => Tymon\JWTAuth\Providers\JWT\Namshi::class,
+        // 'jwt' => 'Tymon\JWTAuth\Providers\JWT\NamshiAdapter',
 
         /*
         |--------------------------------------------------------------------------
@@ -166,7 +167,8 @@ return [
         |
         */
 
-        'storage' => 'Tymon\JWTAuth\Providers\Storage\IlluminateCacheAdapter',
+        'storage' => Tymon\JWTAuth\Providers\Storage\Illuminate::class,
+        // 'storage' => 'Tymon\JWTAuth\Providers\Storage\IlluminateCacheAdapter',
 
     ],
 

@@ -1,14 +1,23 @@
-curl -d 'DATA_HERE'
+how user cURL:
 
-data json: 		{"name":"leonardo","email":"leo.camilo.ribeiro@gmail.com",password:"123456"}
-data enconded:	name=leonardo&email=leo.camilo.ribeiro@gmail.com&password=123456
+	curl -d 'DATA_HERE'
 
--H "Content-Type: application/json"
--H "Content-Type: application/x-www-form-urlencoded"	[optional]
+	data json: 		{"name":"leonardo","email":"leo.camilo.ribeiro@gmail.com",password:"123456"}
+	data enconded:	name=leonardo&email=leo.camilo.ribeiro@gmail.com&password=123456
 
--X POST http://localhost:8000/api/
+	-H "Content-Type: application/json"
+	-H "Content-Type: application/x-www-form-urlencoded"	[optional]
 
-ex:
-	curl -d 'name=leonardo&email=leo.camilo.ribeiro@gmail.com' -H "Content-Type: application/x-www-form-urlencoded" -X POST http://localhost:8000/api/user/login
-	curl -d 'name=leonardo&email=leo.camilo.ribeiro@gmail.com&password=123456' -X POST http://localhost:8000/api/user/register
-	curl -d 'email=leo.camilo.ribeiro@gmail.com&password=123456' -X POST http://localhost:8000/api/user/login
+	-X POST http://localhost:8000/api/
+
+JWT routes:
+
+	[host]:[port]/api/auth/login -d 'email=USER_EMAIL&password=USER_PASS'
+	[host]:[port]/api/auth/refresh?token=TOKEN_HERE
+	[host]:[port]/api/auth/logout?token=TOKEN_HERE
+	[host]:[port]/api/auth/me?token=TOKEN_HERE
+
+examples:
+
+	curl -d 'name=leonardo&email=leo.camilo.ribeiro@gmail.com&password=123456' -X POST http://localhost:8000/api/auth/register
+	curl -X POST http://localhost:8000/api/auth/login -d 'email=leo.camilo.ribeiro@gmail.com&password=123456'

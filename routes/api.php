@@ -20,18 +20,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route::get('user/login', function (Request $request)
-// {
-//     // test stuff here...
-//     // var_dump($request);
+Route::post('auth/register', function (Request $request) { return response()->json(User::register($request)); });
 
-//     return response()->json(User::login($request));
-// });
-
-// Route::post('user/login', function (Request $request) { return response()->json(User::login($request)); });
-Route::post('user/register', function (Request $request) { return response()->json(User::register($request)); });
-
-Route::post('user/login', function (Request $request) 
+Route::group(['middleware' => 'api', 'prefix' => 'auth' ], function ($router)
 {
-
+    Route::post('login',    'Auth\JwtController@login');
+    Route::post('logout',   'Auth\JwtController@logout');
+    Route::post('refresh',  'Auth\JwtController@refresh');
+    Route::post('me',       'Auth\JwtController@me');
+    
+    Route::get('changePass',     'Auth\JwtController@change_pass');
 });
