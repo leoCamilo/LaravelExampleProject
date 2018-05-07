@@ -7,6 +7,7 @@ use Validator;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements JWTSubject
@@ -17,7 +18,7 @@ class User extends Authenticatable implements JWTSubject
     protected $hidden       = [ 'password' ];
 
     public function getJWTIdentifier() { return $this->getKey(); }
-    public function getJWTCustomClaims() { return [ 'command' => 'command code', 'data' => 'your data here' ]; }
+    public function getJWTCustomClaims() { return []; }
 
     public static function register(Request $request)
     {
@@ -38,7 +39,13 @@ class User extends Authenticatable implements JWTSubject
             }
             else
             {
-                $payload['data'] = User::create($validator->validate());
+                $data = $validator->validate();
+                $payload['data'] = User::create(
+                [
+                    'name' => $data['name'],
+                    'email' => $data['email'],
+                    'password' => Hash::make($data['password']),    // SHOULD BE ADDED ON CLIENT
+                ]);
             }
         }
         catch (\Illuminate\Database\QueryException $e)
@@ -49,13 +56,22 @@ class User extends Authenticatable implements JWTSubject
         return $payload;
     }
 
-    public static function update_info(Request $request)
+    public static function update_info()
     {
         return 'update_user not implemented';
     }
 
-    public static function update_pass(Request $request)
+    public static function update_pass(User $current_user, $passwords)
     {
-        return 'update_pass not implemented';
+        if (Hash::check($passwords['old'], $current_user->password))
+        {
+            $validator = Validator::make([ 'password' => $passwords['new'] ], [ 'password' => 'required|string|min:6' ]);
+            $current_user->password = Hash::make($passwords['new']);
+            $current_user->save();
+
+            return response()->json(['error' => 0], 200);
+        }
+        
+        return response()->json(['error' => 1], 401);
     }
 }

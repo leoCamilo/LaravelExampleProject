@@ -24,10 +24,9 @@ Route::post('auth/register', function (Request $request) { return response()->js
 
 Route::group(['middleware' => 'api', 'prefix' => 'auth' ], function ($router)
 {
-    Route::post('login',    'Auth\JwtController@login');
-    Route::post('logout',   'Auth\JwtController@logout');
-    Route::post('refresh',  'Auth\JwtController@refresh');
-    Route::post('me',       'Auth\JwtController@me');
-    
-    Route::get('changePass',     'Auth\JwtController@change_pass');
+    Route::post('login',        'Auth\JwtController@login');
+    Route::post('logout',       'Auth\JwtController@logout');
+    Route::post('refresh',      'Auth\JwtController@refresh');
+    Route::post('me',           'Auth\JwtController@me');
+    Route::post('changePass',   'Auth\JwtController@change_pass');
 });

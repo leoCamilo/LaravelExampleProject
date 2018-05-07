@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use App\User;
 
 class JwtController extends Controller
 {
@@ -39,7 +40,7 @@ class JwtController extends Controller
         [
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60         // time in minutes
+            'expires_in' => auth()->factory()->getTTL() * 10         // time in minutes
         ]);
     }
 
@@ -48,9 +49,7 @@ class JwtController extends Controller
         $data = auth()->payload()->toArray();
 
         if (isset($data['old_pass']) && isset($data['new_pass']))
-        {
-            return response()->json(auth()->user());    // finish
-        }
+            return User::update_pass(auth()->user(), ['old' => $data['old_pass'], 'new' => $data['new_pass']]);
         
         return response()->json(['error' => 'wrong operation'], 401);
     }
