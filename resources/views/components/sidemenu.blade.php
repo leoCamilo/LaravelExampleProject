@@ -1,27 +1,27 @@
-<div class="sidebar" data-color="orange" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+<div class="sidebar" data-color="orange" data-background-color="white">
 	<div class="logo">
-		<a href="http://www.creative-tim.com" class="simple-text logo-normal">
-			{{ config('app.name', 'Laravel') }}
+		<a href="#" class="simple-text logo-normal">
+            {{ config('app.name', 'Laravel') }}
 		</a>
 	</div>
 
 	<div class="sidebar-wrapper">
 		<ul class="nav">
-			<li class="nav-item {{ $opt1 }}">
+			<li class="nav-item @isset($side0) active @endisset">
 				<a class="nav-link" href="../examples/dashboard.html">
 					<i class="material-icons">dashboard</i>
 					<p>Início</p>
 				</a>
 			</li>
 
-			<li class="nav-item {{ $opt3 }}">
+			<li class="nav-item @isset($side1) active @endisset">
 				<a class="nav-link" href="/news">
 					<i class="material-icons">view_agenda</i>
 					<p>Novidades</p>
 				</a>
 			</li>
 
-			<li class="nav-item ">
+			<li class="nav-item @isset($side2) active @endisset">
                 <a class="nav-link collapsed" data-toggle="collapse" href="#schoolMenu" aria-expanded="false">
 					<i class="material-icons">school</i>
                     <p> Acadêmico <b class="caret"></b></p>
@@ -67,7 +67,7 @@
                 </div>
             </li>
 
-			<li class="nav-item ">
+			<li class="nav-item @isset($side3) active @endisset">
                 <a class="nav-link collapsed" data-toggle="collapse" href="#officeMenu" aria-expanded="false">
 					<i class="material-icons">assignment</i>
                     <p> Escritório <b class="caret"></b></p>
@@ -106,14 +106,14 @@
                 </div>
             </li>
 
-			<li class="nav-item">
+			<li class="nav-item @isset($side4) active @endisset">
 				<a class="nav-link" href="#">
 					<i class="material-icons">chat</i>
 					<p>Chat</p>
 				</a>
 			</li>
 
-			<li class="nav-item ">
+			<li class="nav-item @isset($side5) active @endisset">
                 <a class="nav-link collapsed" data-toggle="collapse" href="#clientMenu" aria-expanded="false">
 					<i class="material-icons">monetization_on</i>
                     <p> Clientes <b class="caret"></b></p>
@@ -138,14 +138,14 @@
                 </div>
             </li>
 				
-			<li class="nav-item">
+			<li class="nav-item @isset($side6) active @endisset">
 				<a class="nav-link" href="#">
 					<i class="material-icons">supervisor_account</i>
 					<p>Usuários</p>
 				</a>
 			</li>
 
-			<li class="nav-item">
+			<li class="nav-item @isset($side7) active @endisset">
 				<a class="nav-link" href="#">
 					<i class="material-icons">exit_to_app</i>
 					<p>Sair</p>

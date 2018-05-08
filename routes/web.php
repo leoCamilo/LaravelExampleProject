@@ -30,5 +30,7 @@ Route::get('/test', function ()
     return view('pages/test');
 });
 
-Route::get('/news', function () { return view('pages/news/list_news', ['name' => 'Novidades']); });
-Route::get('/news/new', function () { return view('pages/news/new_news', ['name' => 'Novidades']); });
+// Route::get('/news', function () { return view('pages/news/list_news', ['name' => 'Novidades']); });
+// Route::get('/news/new', function () { return view('pages/news/new_news', ['name' => 'Novidades']); });
+
+Route::resource('news', 'NewsController');

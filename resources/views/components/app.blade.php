@@ -14,11 +14,12 @@
 		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
 		<link href="{{ asset('css/material-dashboard.css') }}" rel="stylesheet">
+		<link href="{{ asset('css/andregomes.css') }}" rel="stylesheet">
 	</head>
 
 	<body class="">
 		<div class="wrapper">
-			@component('components/sidemenu', ['opt1' => '', 'opt2' => 'active', 'opt3' => ''])
+			@component('components/sidemenu', $sidemenu)
 			@endcomponent
 
 			<div class="main-panel">
