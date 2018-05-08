@@ -16,12 +16,10 @@ JWT routes:
 	[host]:[port]/api/auth/refresh?token=TOKEN_HERE
 	[host]:[port]/api/auth/logout?token=TOKEN_HERE
 	[host]:[port]/api/auth/me?token=TOKEN_HERE
+	[host]:[port]/api/auth/changePass?token=JWT_TOKEN
 
 examples:
 
 	curl -d 'name=leonardo&email=leo.camilo.ribeiro@gmail.com&password=123456' -X POST http://localhost:8000/api/auth/register
 	curl -X POST http://localhost:8000/api/auth/login -d 'email=leo.camilo.ribeiro@gmail.com&password=123456'
 	curl -X POST http://localhost:8000/api/auth/changePass -d 'token=JWT_TOKEN'
-
-	
-	curl -X POST http://localhost:8000/api/auth/changePass -d 'token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE1MjU3MDk0MzAsImV4cCI6MTUyNTcxMzAzMCwibmJmIjoxNTI1NzA5NDMwLCJqdGkiOiJid0I5ZU5jdWxPRENISUp1Iiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIiwibmV3X3Bhc3MiOiIxMjM0NTYiLCJvbGRfcGFzcyI6IjY1NDMyMSJ9.pqfLfabi0dJ_xAfNxLb6qBIXDcenMXK0YovhOMhazLQ'

@@ -25,6 +25,7 @@ Route::get('user/login', function (Request $request){
     return $data;
 });
 
-Route::get('/submit', function () {
-    return view('submit');
+Route::get('/test', function () 
+{
+    return view('pages/test');
 });
