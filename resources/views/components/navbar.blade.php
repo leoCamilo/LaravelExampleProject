@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top">
 	<div class="container-fluid">
 		<div class="navbar-wrapper">
-			<a class="navbar-brand" href="#pablo">Icons</a>
+			<a class="navbar-brand" href="#">{{ $name }}</a>
 		</div>
 
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,7 +12,7 @@
 		</button>
 		
 		<div class="collapse navbar-collapse justify-content-end" id="navigation">
-			<form class="navbar-form">
+			<!-- <form class="navbar-form">
 				<div class="input-group no-border">
 					<input type="text" value="" class="form-control" placeholder="Search...">
 					<button type="submit" class="btn btn-white btn-round btn-just-icon">
@@ -20,17 +20,17 @@
 						<div class="ripple-container"></div>
 					</button>
 				</div>
-			</form>
+			</form> -->
 			
 			<ul class="navbar-nav">
-				<li class="nav-item">
+				<!-- <li class="nav-item">
 					<a class="nav-link" href="#pablo">
 						<i class="material-icons">dashboard</i>
 						<p>
 							<span class="d-lg-none d-md-block">Stats</span>
 						</p>
 					</a>
-				</li>
+				</li> -->
 				
 				<li class="nav-item dropdown">
 					<a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -49,14 +49,14 @@
 					</div>
 				</li>
 				
-				<li class="nav-item">
+				<!-- <li class="nav-item">
 					<a class="nav-link" href="#pablo">
 						<i class="material-icons">person</i>
 						<p>
 							<span class="d-lg-none d-md-block">Account</span>
 						</p>
 					</a>
-				</li>
+				</li> -->
 			</ul>
 		</div>
 	</div>

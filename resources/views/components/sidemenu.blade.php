@@ -15,7 +15,7 @@
 			</li>
 
 			<li class="nav-item {{ $opt3 }}">
-				<a class="nav-link" href="#">
+				<a class="nav-link" href="/news">
 					<i class="material-icons">view_agenda</i>
 					<p>Novidades</p>
 				</a>
