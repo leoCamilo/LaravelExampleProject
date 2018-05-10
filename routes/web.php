@@ -27,7 +27,7 @@ Route::get('user/login', function (Request $request){
 
 Route::get('/test', function () 
 {
-    return view('pages/test');
+    return view('pages/test', [ 'name' => 'Novidades' ]);
 });
 
 // Route::get('/news', function () { return view('pages/news/list_news', ['name' => 'Novidades']); });

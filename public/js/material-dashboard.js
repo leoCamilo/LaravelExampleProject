@@ -1,10 +1,10 @@
 /*! =========================================================
  *
- * Material Dashboard - V2.0.0
+ * Material Dashboard PRO - V2.0.1
  *
  * =========================================================
  *
- * Copyright 2018 Creative Tim (http://www.creative-tim.com/product/material-dashboard)
+ * Copyright 2016 Creative Tim (http://www.creative-tim.com/product/material-dashboard-pro)
  *
  *
  *                       _oo0oo_

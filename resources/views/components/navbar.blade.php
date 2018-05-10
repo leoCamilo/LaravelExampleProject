@@ -2,6 +2,14 @@
 	<div class="container-fluid">
 		<div class="navbar-wrapper">
 			<a class="navbar-brand" href="#">{{ $name }}</a>
+
+			@isset($new_url)
+			<a href="{{$new_url}}">
+				<button class="btn btn-warning btn-round btn-fab">
+					<i class="material-icons">add</i>
+				</button>
+			</a>
+			@endisset
 		</div>
 
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">

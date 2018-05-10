@@ -1,61 +1,46 @@
-@extends('components.app', [ 'sidemenu' => ['side1' => 'true'] ])
+@extends('components.app', [ 'sidemenu' => ['side1' => 'true'], 'navbar' => [ 'new_url' => '\news\create' ] ])
 @section('content')
 
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-12">
-			<div class="card card-plain">
-				<div class="card-header card-header-primary">
-					<h4 class="card-title mt-0">Lista de publicações de novidades</h4>
-					<!-- <p class="card-category">Lista de publicações de novidades</p> -->
+		@foreach($news as $n)
+
+		<div class="col-md-4">
+			<div class="card card-product" data-count="3">
+				<div class="card-header card-header-image">
+					<a href="#">
+						<img class="img news-img" src="{{ $n->img_url }}">
+					</a>
 				</div>
-				
+
 				<div class="card-body">
-					<div class="table-responsive">
-						<table class="table table-hover">
-							<thead class="">
-								<th class="text-center" style="width:20%"> Imagem </th>
-								<th style="width:50%"> Conteúdo </th>
-								<th class="text-center" style="width:20%"> Data </th>
-								<th style="width:10%"></th>	<!-- for options -->
-							</thead>
+					<h4 class="card-title">
+						{{ $n->title }}
+					</h4>
+					<div class="card-description">
+						{{ substr($n->content, 0, 144)."..." }}
+					</div>
+				</div>
 
-							<tbody>
-								@foreach($news as $n)
+				<div class="card-footer">
+					<div class="stats">
+						<p class="card-category"><i class="material-icons">watch_later</i> {{ $n->created_at }}</p>
+					</div>
+					
+					<div class="">
+						<button class="btn btn-just-icon btn-link btn-warning">
+							<i class="material-icons">visibility_off</i>
+						</button>
 
-								<tr>
-									<td>
-										<div class="img-container">
-											<img class="news-img" src="{{ $n->img_url }}">
-                                      </div>
-									</td>
-									
-									<td class="td-name">
-										{{ $n->title }}
-										<br><br>
-										<small>{{ $n->content }}</small>
-									</td>
-
-									<td class="text-center"><small>{{ $n->created_at }}</small></td>	<!-- 16:27 ás 30/05/2018 -->
-									
-									<td class="td-actions text-right">
-										<button type="button" rel="tooltip" class="btn btn-warning btn-link" data-original-title="" title="">
-											<i class="material-icons">visibility_off</i>
-										</button>
-										
-										<button type="button" rel="tooltip" class="btn btn-danger btn-link" data-original-title="" title="">
-											<i class="material-icons">close</i>
-										</button>
-									</td>
-								</tr>
-
-								@endforeach
-							</tbody>
-						</table>
+						<button class="btn btn-just-icon btn-link btn-danger">
+							<i class="material-icons">close</i>
+						</button>
 					</div>
 				</div>
 			</div>
 		</div>
+
+		@endforeach
 	</div>
 </div>
 

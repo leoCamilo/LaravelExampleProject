@@ -28,7 +28,10 @@ class NewsController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages/news/new_news', 
+        [
+            'name' => 'Novidades'
+        ]);
     }
 
     /**
@@ -39,7 +42,17 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $data = $request->validate([
+        //     'title' => 'required|max:255',
+        //     'url' => 'required|url|max:255',
+        //     'description' => 'required|max:255',
+        // ]);
+    
+        // $link = tap(new App\Link($data))->save();
+
+        // return redirect('/news');
+
+        return response()->json($request);
     }
 
     /**
