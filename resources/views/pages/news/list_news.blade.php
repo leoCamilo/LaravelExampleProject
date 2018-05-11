@@ -28,11 +28,15 @@
 					</div>
 					
 					<div class="">
-						<button class="btn btn-just-icon btn-link btn-warning">
+						<button class="btn btn-just-icon btn-link btn-warning" onclick="set_visibility({{$n->id}}, '/api/news/change_visibility/')">
+						@if ($n->visible)
 							<i class="material-icons">visibility_off</i>
+						@else
+							<i class="material-icons">visibility</i>
+						@endif
 						</button>
 
-						<button class="btn btn-just-icon btn-link btn-danger" onclick="delete_news({{$n->id}})">
+						<button class="btn btn-just-icon btn-link btn-danger" onclick="delete_info({{$n->id}}, '/api/news/')">
 							<i class="material-icons">close</i>
 						</button>
 					</div>

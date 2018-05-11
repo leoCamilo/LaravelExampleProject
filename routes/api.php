@@ -32,5 +32,10 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth' ], function ($router)
 });
 
 
-Route::get('news/{page}', "NewsController@getAllNews");
-Route::delete('news/{id}', "NewsController@destroy");
+Route::get('news/{page}', "News\NewsController@getAllNews");
+
+Route::put('news/change_visibility/{id}'            , "News\NewsController@change_visibility");
+Route::put('videolessons/change_visibility/{id}'    , "Academic\VideoLessonsController@change_visibility");
+
+Route::delete('news/{id}'           , "News\NewsController@destroy");
+Route::delete('videolessons/{id}'   , "Academic\VideoLessonsController@destroy");

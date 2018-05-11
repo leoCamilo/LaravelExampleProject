@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\News;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\News;
 
 class NewsController extends Controller
@@ -119,5 +120,12 @@ class NewsController extends Controller
         $news->delete();
 
         return response()->json([ 'success' => 'true' ]);
+    }
+
+    public function change_visibility($id)
+    {
+        $news = News::find($id);
+        $news->visible = !$news->visible;
+        $news->save();
     }
 }

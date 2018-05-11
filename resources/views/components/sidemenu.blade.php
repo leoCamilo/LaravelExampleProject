@@ -1,6 +1,6 @@
 <div class="sidebar" data-color="orange" data-background-color="white">
 	<div class="logo">
-		<a href="#" class="simple-text logo-normal">
+		<a href="#" class="simple-text logo-normal text-center">
             {{ config('app.name', 'Laravel') }}
 		</a>
 	</div>
@@ -30,7 +30,7 @@
                 <div class="collapse" id="schoolMenu" style="">
                     <ul class="nav">
                         <li class="nav-item ">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/videolessons">
                               <i class="material-icons">videocam</i>
                               <span class="sidebar-normal"> Vídeo Aula </span>
                             </a>
