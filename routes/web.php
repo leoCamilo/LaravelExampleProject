@@ -25,5 +25,6 @@ Route::get('user/login', function (Request $request){
     return $data;
 });
 
-Route::resource('videolessons', 'Academic\VideoLessonsController');
-Route::resource('news', 'News\NewsController');
+Route::resource('videolessons'  , 'Academic\VideoLessonsController');
+Route::resource('roles'         , 'Office\RoleController');
+Route::resource('news'          , 'News\NewsController');

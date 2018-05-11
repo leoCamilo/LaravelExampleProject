@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Office;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Domain\Role;
 
 class RoleController extends Controller
 {
@@ -14,7 +15,11 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages/office/list_roles', 
+        [
+            'name' => 'Atuação',
+            'roles' => Role::all()
+        ]);
     }
 
     /**
@@ -24,7 +29,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages/office/create_role', [ 'name' => 'Atuação' ]);
     }
 
     /**
@@ -35,7 +40,9 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([ 'name' => 'required|max:255' ]);
+        tap(new Role($data))->save();
+        return redirect('roles');
     }
 
     /**

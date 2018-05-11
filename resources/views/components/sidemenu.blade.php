@@ -90,7 +90,7 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/roles">
                               <i class="material-icons">library_books</i>
                               <span class="sidebar-normal"> Atuação </span>
                             </a>
