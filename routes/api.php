@@ -30,3 +30,7 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth' ], function ($router)
     Route::post('me',           'Auth\JwtController@me');
     Route::post('changePass',   'Auth\JwtController@change_pass');
 });
+
+
+Route::get('news/{page}', "NewsController@getAllNews");
+Route::delete('news/{id}', "NewsController@destroy");

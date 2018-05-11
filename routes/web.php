@@ -14,7 +14,7 @@
 use App\User;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages/test', [ 'name' => 'Novidades' ]);
 });
 
 Route::get('user/login', function (Request $request){
@@ -24,13 +24,5 @@ Route::get('user/login', function (Request $request){
 
     return $data;
 });
-
-Route::get('/test', function () 
-{
-    return view('pages/test', [ 'name' => 'Novidades' ]);
-});
-
-// Route::get('/news', function () { return view('pages/news/list_news', ['name' => 'Novidades']); });
-// Route::get('/news/new', function () { return view('pages/news/new_news', ['name' => 'Novidades']); });
 
 Route::resource('news', 'NewsController');

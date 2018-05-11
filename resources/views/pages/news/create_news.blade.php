@@ -13,7 +13,7 @@
 				</div>
 
 				<div class="card-body">
-					<form action="/news" method="post" onsubmit="return add_img_to_form();">
+					<form action="/news" method="post" enctype='multipart/form-data'>
 						{!! csrf_field() !!}
 
 						<div class="row">
@@ -28,7 +28,6 @@
 											<span class="fileinput-new">Select image</span>
 											<span class="fileinput-exists">Change</span>
 											<input type="file" name="news_img" accept="image/gif, image/jpeg, image/png">
-											<input type="hidden" id="img_data" name="img_data">
 										</span>
 										<a href="#" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
 									</div>
@@ -38,20 +37,20 @@
 							<div class="col-md-8">
 								<div class="form-group has-warning">
 									<label class="bmd-label-floating">Título</label>
-									<input id="title" name="title" type="text" class="form-control">
+									<input id="title" name="title" type="text" class="form-control" required="true" aria-required="true">
 								</div>
 
 								<div class="form-group has-warning">
 									<label>Conteúdo</label>
 									
 									<div class="form-group">
-										<textarea id="content" name="content" class="form-control" rows="7"></textarea>
+										<textarea id="content" name="content" class="form-control" rows="7" required="true" aria-required="true"></textarea>
 									</div>
 								</div>
 							</div>
 						</div>
 
-						<button type="submit" class="btn btn-warning pull-right">Salvar</button>
+						<button type="submit" onclick="show_save_loading()" class="btn btn-warning pull-right">Salvar</button>
 						<div class="clearfix"></div>
 					</form>
 				</div>
@@ -59,12 +58,5 @@
 		</div>
 	</div>
 </div>
-
-<script>
-	function add_img_to_form() {
-		// console.log($('#img_tag').attr("src"));
-		return true;
-	}
-</script>
 
 @endsection

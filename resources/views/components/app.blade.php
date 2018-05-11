@@ -54,5 +54,6 @@
 	<script type="text/javascript" src="{{ asset('js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/plugins/sweetalert2.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/material-dashboard.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/andregomes.js') }}"></script>
 
 </html>

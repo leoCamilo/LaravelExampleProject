@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\News;
 
@@ -21,6 +22,16 @@ class NewsController extends Controller
         ]);
     }
 
+    public function getAllNews($page)
+    {
+        return response()->json(DB::table('news')
+            ->orderBy('created_at', 'desc')
+            ->skip($page * 10)
+            ->take(10)
+            ->get()
+        );
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -28,10 +39,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('pages/news/new_news', 
-        [
-            'name' => 'Novidades'
-        ]);
+        return view('pages/news/create_news', [ 'name' => 'Novidades' ]);
     }
 
     /**
@@ -40,19 +48,29 @@ class NewsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request) // improve validation
     {
         // $data = $request->validate([
-        //     'title' => 'required|max:255',
-        //     'url' => 'required|url|max:255',
-        //     'description' => 'required|max:255',
+        //     'news_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         // ]);
-    
-        // $link = tap(new App\Link($data))->save();
 
-        // return redirect('/news');
+        if ($request->hasFile('news_img'))
+        {
+            $image = $request->file('news_img');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/img/posts');
+            $image->move($destinationPath, $name);
+            
+            $data = $request->validate([
+                'title' => 'required|max:255',
+                'content' => 'required',
+            ]);
+        
+            $data['img_url'] = "/img/posts/".$name;
 
-        return response()->json($request);
+            tap(new News($data))->save();
+            return redirect('news');
+        }
     }
 
     /**
@@ -63,7 +81,7 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('pages/news/detail_news', [ 'news' => News::find($id), 'name' => 'Novidades' ]);
     }
 
     /**
@@ -97,6 +115,9 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $news = News::find($id);
+        $news->delete();
+
+        return response()->json([ 'success' => 'true' ]);
     }
 }
