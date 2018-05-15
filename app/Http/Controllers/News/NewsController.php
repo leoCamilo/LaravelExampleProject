@@ -9,11 +9,6 @@ use App\News;
 
 class NewsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         return view('pages/news/list_news', 
@@ -33,22 +28,11 @@ class NewsController extends Controller
         );
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('pages/news/create_news', [ 'name' => 'Novidades' ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request) // improve validation
     {
         // $data = $request->validate([
@@ -74,50 +58,26 @@ class NewsController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         return view('pages/news/detail_news', [ 'news' => News::find($id), 'name' => 'Novidades' ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+    public function edit($id) { }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+    public function update(Request $request, $id) { }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $news = News::find($id);
-        $news->delete();
+        $image = $news->img_url;
+        $path = public_path('/img/posts').'/'.str_replace("/img/posts/", "", $image);
+
+        if (file_exists($path))
+        {
+            @unlink($path);
+            $news->delete();
+        }
 
         return response()->json([ 'success' => 'true' ]);
     }

@@ -13,8 +13,8 @@
 				</div>
 
 				<div class="card-body">
-					<form action="/roles" method="post">
-						{!! csrf_field() !!}
+					<form action="/roles" method="POST">
+						@csrf
 
 						<div class="row">
 							<div class="col-md-12">

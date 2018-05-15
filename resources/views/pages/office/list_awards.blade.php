@@ -1,4 +1,4 @@
-@extends('components.app', [ 'sidemenu' => ['side3' => 'true'], 'navbar' => [ 'new_url' => '\roles\create' ] ])
+@extends('components.app', [ 'sidemenu' => ['side3' => 'true'], 'navbar' => [ 'new_url' => '\awards\create' ] ])
 @section('content')
 
 <div class="container-fluid">
@@ -10,22 +10,24 @@
 						<i class="material-icons">assignment</i>
 					</div>
 					
-					<h4 class="card-title ">Lista de Atuações</h4>
+					<h4 class="card-title ">Lista de Prêmios</h4>
 				</div>
 
 				<div class="card-body">
 					<div class="table-responsive">
 						<table class="table">
 							<tbody>
-								@foreach($roles as $r)
+								@foreach($awards as $a)
 								
 								<tr>
-									<td>
-										{{$r->name}}
+									<td width="150px" class="text-center">
+										<img class="img-circle-on-table" src="{{$a->img_url}}">
 									</td>
 									
+									<td> {{$a->title}} </td>
+									
 									<td class="td-actions text-right">
-										<button class="btn btn-just-icon btn-link btn-danger" onclick="delete_info({{$r->id}}, '/api/roles/')">
+										<button class="btn btn-just-icon btn-link btn-danger" onclick="delete_info({{$a->id}}, '/api/awards/')">
 											<i class="material-icons">close</i>
 										</button>
 									</td>

@@ -7,16 +7,9 @@
 
 	<div class="sidebar-wrapper">
 		<ul class="nav">
-			<li class="nav-item @isset($side0) active @endisset">
-				<a class="nav-link" href="../examples/dashboard.html">
-					<i class="material-icons">dashboard</i>
-					<p>Início</p>
-				</a>
-			</li>
-
 			<li class="nav-item @isset($side1) active @endisset">
 				<a class="nav-link" href="/news">
-					<i class="material-icons">view_agenda</i>
+					<i class="material-icons">dashboard</i>
 					<p>Novidades</p>
 				</a>
 			</li>
@@ -76,14 +69,14 @@
                 <div class="collapse" id="officeMenu" style="">
                     <ul class="nav">
                         <li class="nav-item ">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/office">
                               <i class="material-icons">content_paste</i>
                               <span class="sidebar-normal"> Escritório </span>
                             </a>
                         </li>
 
                         <li class="nav-item ">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/team">
                               <i class="material-icons">group</i>
                               <span class="sidebar-normal"> Equipe </span>
                             </a>
@@ -97,7 +90,7 @@
                         </li>
 
 						<li class="nav-item ">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/awards">
                               <i class="material-icons">stars</i>
                               <span class="sidebar-normal"> Prêmios </span>
                             </a>

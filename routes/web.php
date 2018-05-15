@@ -26,5 +26,13 @@ Route::get('user/login', function (Request $request){
 });
 
 Route::resource('videolessons'  , 'Academic\VideoLessonsController');
+Route::resource('study'         , 'Academic\StudiesController');
+Route::resource('office'        , 'Office\OfficeController');
+Route::resource('awards'        , 'Office\AwardController');
 Route::resource('roles'         , 'Office\RoleController');
+Route::resource('team'          , 'Office\TeamController');
 Route::resource('news'          , 'News\NewsController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

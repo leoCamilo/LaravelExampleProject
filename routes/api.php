@@ -38,4 +38,6 @@ Route::put('news/change_visibility/{id}'            , "News\NewsController@chang
 Route::put('videolessons/change_visibility/{id}'    , "Academic\VideoLessonsController@change_visibility");
 
 Route::delete('news/{id}'           , "News\NewsController@destroy");
+Route::delete('roles/{id}'          , "Office\RoleController@destroy");
+Route::delete('awards/{id}'         , "Office\AwardController@destroy");
 Route::delete('videolessons/{id}'   , "Academic\VideoLessonsController@destroy");

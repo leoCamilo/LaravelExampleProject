@@ -8,3 +8,16 @@
 	width: 100%;
 	border-radius: 7px;
 }
+
+.img-circle > img {
+	height: 100px;
+    object-fit: cover;
+}
+
+.img-circle-on-table {
+	height: 100px;
+	width: 100px;
+    object-fit: cover;
+	border-radius: 50%;
+	box-shadow: 0 16px 38px -12px rgba(0,0,0,.56), 0 4px 25px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
+}
