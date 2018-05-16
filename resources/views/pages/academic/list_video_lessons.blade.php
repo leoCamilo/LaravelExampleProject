@@ -1,4 +1,4 @@
-@extends('components.app', [ 'sidemenu' => ['side2' => 'true'], 'navbar' => [ 'new_url' => '\videolessons\create' ] ])
+@extends('components.app', [ 'sidemenu' => ['side2' => 'colapsed', 'side21' => 1], 'navbar' => [ 'new_url' => '\videolessons\create' ] ])
 @section('content')
 
 <div class="container-fluid">

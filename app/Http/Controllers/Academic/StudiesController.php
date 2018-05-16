@@ -9,7 +9,7 @@ class StudiesController extends Controller
 {
     public function index()
     {
-        //
+        return view('pages/academic/list_quiz', [ 'name' => 'Estudo' ]);
     }
 
     public function create()

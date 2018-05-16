@@ -22,7 +22,7 @@
 
                 <div class="collapse" id="schoolMenu" style="">
                     <ul class="nav">
-                        <li class="nav-item ">
+                        <li class="nav-item @isset($side21) active @endisset">
                             <a class="nav-link" href="/videolessons">
                               <i class="material-icons">videocam</i>
                               <span class="sidebar-normal"> Vídeo Aula </span>
@@ -30,7 +30,7 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/study">
                               <i class="material-icons">book</i>
                               <span class="sidebar-normal"> Estudos </span>
                             </a>
