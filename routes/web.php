@@ -31,6 +31,7 @@ Route::resource('office'        , 'Office\OfficeController');
 Route::resource('awards'        , 'Office\AwardController');
 Route::resource('roles'         , 'Office\RoleController');
 Route::resource('team'          , 'Office\TeamController');
+Route::resource('users'         , 'Users\UserController');
 Route::resource('news'          , 'News\NewsController');
 
 Auth::routes();

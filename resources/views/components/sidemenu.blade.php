@@ -132,7 +132,7 @@
             </li>
 				
 			<li class="nav-item @isset($side6) active @endisset">
-				<a class="nav-link" href="#">
+				<a class="nav-link" href="/users">
 					<i class="material-icons">supervisor_account</i>
 					<p>Usuários</p>
 				</a>
