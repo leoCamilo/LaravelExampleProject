@@ -5,7 +5,7 @@ namespace App\Http\Controllers\News;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\News;
+use App\Domain\News;
 
 class NewsController extends Controller
 {

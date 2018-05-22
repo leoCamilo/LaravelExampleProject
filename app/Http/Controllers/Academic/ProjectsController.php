@@ -14,7 +14,11 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages/academic/list_projects', 
+        [
+            'name' => 'Projetos',
+            'projects' => []
+        ]);
     }
 
     /**
@@ -24,7 +28,7 @@ class ProjectsController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages/academic/create_project', [ 'name' => 'Projetos' ]);
     }
 
     /**

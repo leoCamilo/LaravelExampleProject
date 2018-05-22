@@ -23,7 +23,7 @@
 									<th class="text-right">Premium</th>
 								</tr>
 							</thead>
-								
+
 							<tbody>
 								
 								<tr >

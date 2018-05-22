@@ -1,4 +1,4 @@
-@extends('components.app', [ 'sidemenu' => ['side3' => 'true'], 'navbar' => [ 'new_url' => '\awards\create' ] ])
+@extends('components.app', [ 'sidemenu' => ['side34' => 'true'], 'navbar' => [ 'new_url' => '\awards\create' ] ])
 @section('content')
 
 <div class="container-fluid">

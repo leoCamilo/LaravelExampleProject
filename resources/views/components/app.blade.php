@@ -40,21 +40,21 @@
 	<script type="text/javascript" src="{{ asset('js/plugins/material.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/plugins/sweetalert2.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/plugins/jquery.select-bootstrap.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/material-dashboard.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/andregomes.js') }}"></script>
 
-	<!-- <script type="text/javascript" src="{{ asset('js/plugins/nouislider.min.js') }}"></script> -->
-	<!-- <script type="text/javascript" src="{{ asset('js/plugins/bootstrap-selectpicker.js') }}"></script> -->
-	<!-- <script type="text/javascript" src="{{ asset('js/plugins/bootstrap-tagsinput.js') }}"></script> -->
-	<!-- <script type="text/javascript" src="{{ asset('js/plugins/chartist.min.js') }}"></script> -->
-	<!-- <script type="text/javascript" src="{{ asset('js/plugins/demo.js') }}"></script> -->
-	<!-- <script type="text/javascript" src="{{ asset('js/plugins/jquery-jvectormap.js') }}"></script> -->
-	<!-- <script type="text/javascript" src="{{ asset('js/plugins/jquery.bootstrap-wizard.js') }}"></script> -->
-	<!-- <script type="text/javascript" src="{{ asset('js/plugins/jquery.datatables.js') }}"></script> -->
-	<!-- <script type="text/javascript" src="{{ asset('js/plugins/jquery.select-bootstrap.js') }}"></script> -->
-	<!-- <script type="text/javascript" src="{{ asset('js/plugins/jquery.validate.min.js') }}"></script> -->
-	<!-- <script type="text/javascript" src="{{ asset('js/plugins/moment.min.js') }}"></script> -->
-	<!-- <script type="text/javascript" src="{{ asset('js/plugins/bootstrap-datetimepicker.min.js') }}"></script> -->
-	<!-- <script type="text/javascript" src="{{ asset('js/plugins/fullcalendar.min.js') }}"></script> -->
+	<!-- <script type="text/javascript" src="{{ asset('js/plugins/nouislider.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/plugins/bootstrap-selectpicker.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/plugins/bootstrap-tagsinput.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/plugins/chartist.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/plugins/demo.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/plugins/jquery-jvectormap.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/plugins/jquery.bootstrap-wizard.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/plugins/jquery.datatables.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/plugins/jquery.validate.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/plugins/moment.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/plugins/bootstrap-datetimepicker.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/plugins/fullcalendar.min.js') }}"></script> -->
 
 </html>

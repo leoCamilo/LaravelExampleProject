@@ -25,7 +25,9 @@ Route::get('user/login', function (Request $request){
     return $data;
 });
 
+Route::resource('consultations' , 'Clients\ConsultationController');
 Route::resource('videolessons'  , 'Academic\VideoLessonsController');
+Route::resource('projects'      , 'Academic\ProjectsController');
 Route::resource('study'         , 'Academic\StudiesController');
 Route::resource('office'        , 'Office\OfficeController');
 Route::resource('awards'        , 'Office\AwardController');

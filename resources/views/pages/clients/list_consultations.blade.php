@@ -1,4 +1,4 @@
-@extends('components.app', [ 'sidemenu' => ['side33' => 'true'], 'navbar' => [ 'new_url' => '\roles\create' ] ])
+@extends('components.app', [ 'sidemenu' => ['side52' => 'true'], 'navbar' => [ 'new_url' => '\consultations\create' ] ])
 @section('content')
 
 <div class="container-fluid">
@@ -10,22 +10,26 @@
 						<i class="material-icons">assignment</i>
 					</div>
 					
-					<h4 class="card-title ">Lista de Atuações</h4>
+					<h4 class="card-title ">Lista de Consultas</h4>
 				</div>
 
 				<div class="card-body">
 					<div class="table-responsive">
 						<table class="table">
 							<tbody>
-								@foreach($roles as $r)
+								@foreach($consultations as $c)
 								
 								<tr>
 									<td>
-										{{$r->name}}
+										<a href="{{$c->link}}" target='_blank'>
+											<div>
+												{{$c->title}}
+											</div>
+										</a>
 									</td>
 									
 									<td class="td-actions text-right">
-										<button class="btn btn-just-icon btn-link btn-danger" onclick="delete_info({{$r->id}}, '/api/roles/')">
+										<button class="btn btn-just-icon btn-link btn-danger" onclick="delete_info({{$c->id}}, '/api/consultations/')">
 											<i class="material-icons">close</i>
 										</button>
 									</td>
