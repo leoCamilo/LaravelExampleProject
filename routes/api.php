@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 |
 */
 
-use App\User;
+use App\Domain\User;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
@@ -31,11 +31,11 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth' ], function ($router)
     Route::post('changePass',   'Auth\JwtController@change_pass');
 });
 
-
 Route::get('news/{page}', "News\NewsController@getAllNews");
 
 Route::put('news/change_visibility/{id}'            , "News\NewsController@change_visibility");
 Route::put('videolessons/change_visibility/{id}'    , "Academic\VideoLessonsController@change_visibility");
+Route::put('users/change_premium/{id}'              , "Users\UserController@change_premium");
 
 Route::delete('news/{id}'           , "News\NewsController@destroy");
 Route::delete('roles/{id}'          , "Office\RoleController@destroy");

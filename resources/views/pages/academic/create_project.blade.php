@@ -13,10 +13,10 @@
 				</div>
 
 				<div class="card-body">
-					<form action="/consultations" method="POST">
+					<form action="/projects" method="POST" enctype='multipart/form-data'>
 						@csrf
 
-						<div class="row">
+						<div class="row"> 
 							<div class="col-md-8">
 								<div class="form-group has-warning">
 									<label class="bmd-label-floating">Titulo do projeto</label>
@@ -26,8 +26,8 @@
 							
 							<div class="col-md-4">
 								<div class="btn-group bootstrap-select">
-									<select class="selectpicker" data-size="5" data-style="btn btn-warning btn-round" title="Projetos de extensão" tabindex="-98">
-										<option value="1">Projetos de extensão</option>
+									<select name="type" class="selectpicker" data-size="5" data-style="btn btn-warning btn-round" title="Projetos de extensão" tabindex="-98">
+										<option value="1" selected>Projetos de extensão</option>
 										<option value="2">Projetos de pesquisa</option>
 										<option value="3">Ligas Acadêmicas</option>
 									</select>
@@ -40,7 +40,7 @@
 								<label>Sobre o projeto</label>
 									
 								<div class="form-group">
-									<textarea name="content" class="form-control" rows="8" required="true" aria-required="true"></textarea>
+									<textarea name="about" class="form-control" rows="8" required="true" aria-required="true"></textarea>
 								</div>
 							</div>
 						</div>
@@ -77,7 +77,5 @@
 		</div>
 	</div>
 </div>
-
-<script type="text/javascript" src="{{ asset('js/plugins/jquery.select-bootstrap.js') }}"></script>
 
 @endsection

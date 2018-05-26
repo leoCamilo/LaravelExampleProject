@@ -25,15 +25,16 @@
 							</thead>
 
 							<tbody>
-								
+
+							@foreach($users as $u)
 								<tr >
-									<td> Leonardo Camilo Ribeiro </td>
-									<td> leo.camilo.ribeiro@gmail.com </td>
+									<td> {{$u->name}} </td>
+									<td> {{$u->email}} </td>
 									
 									<td class="td-actions text-right">
 										<div class="form-check">
 											<label class="form-check-label">
-												<input class="form-check-input" type="checkbox" value="" checked="">
+												<input class="form-check-input" type="checkbox" onclick="set_user_premium({{$u->id}})" @if($u->premium) checked="" @endif>
 												<span class="form-check-sign">
 													<span class="check"></span>
 												</span>
@@ -41,55 +42,8 @@
 										</div>
 									</td>
 								</tr>
+							@endforeach
 
-								<tr>
-									<td> Leonardo Camilo Ribeiro </td>
-									<td> leo.camilo.ribeiro@gmail.com </td>
-									
-									<td class="td-actions text-right">
-										<div class="form-check">
-											<label class="form-check-label">
-												<input class="form-check-input" type="checkbox">
-												<span class="form-check-sign">
-													<span class="check"></span>
-												</span>
-											</label>
-										</div>
-									</td>
-								</tr>
-
-								<tr>
-									<td> Leonardo Camilo Ribeiro </td>
-									<td> leo.camilo.ribeiro@gmail.com </td>
-									
-									<td class="td-actions text-right">
-										<div class="form-check">
-											<label class="form-check-label">
-												<input class="form-check-input" type="checkbox" value="" checked="">
-												<span class="form-check-sign">
-													<span class="check"></span>
-												</span>
-											</label>
-										</div>
-									</td>
-								</tr>
-
-								<tr>
-									<td> Leonardo Camilo Ribeiro </td>
-									<td> leo.camilo.ribeiro@gmail.com </td>
-									
-									<td class="td-actions text-right">
-										<div class="form-check">
-											<label class="form-check-label">
-												<input class="form-check-input" type="checkbox">
-												<span class="form-check-sign">
-													<span class="check"></span>
-												</span>
-											</label>
-										</div>
-									</td>
-								</tr>
-								
 							</tbody>
 						</table>
 					</div>

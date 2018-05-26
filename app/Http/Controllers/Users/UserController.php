@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Users;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Domain\User;
 
 class UserController extends Controller
 {
@@ -11,8 +12,8 @@ class UserController extends Controller
     {
         return view('pages/users/list_users', 
         [
-            'name' => 'Usuários'
-            // 'roles' => Role::all()
+            'name' => 'Usuários',
+            'users' => User::all()
         ]);
     }
 
@@ -44,5 +45,12 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function change_premium($id)
+    {
+        $user = User::find($id);
+        $user->premium = !$user->premium;
+        $user->save();
     }
 }

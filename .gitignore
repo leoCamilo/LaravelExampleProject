@@ -3,6 +3,7 @@
 /public/storage
 /public/img/posts
 /public/img/awards
+/public/files
 /storage/*.key
 /vendor
 /.idea

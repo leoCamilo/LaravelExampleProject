@@ -40,7 +40,7 @@
 	<script type="text/javascript" src="{{ asset('js/plugins/material.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/plugins/sweetalert2.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/plugins/jquery.select-bootstrap.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/plugins/jquery.select-bootstrap.js') }}"></script>	<!-- test insert on page-->
 	<script type="text/javascript" src="{{ asset('js/material-dashboard.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/andregomes.js') }}"></script>
 

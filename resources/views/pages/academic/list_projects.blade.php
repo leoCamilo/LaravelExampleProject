@@ -20,35 +20,48 @@
 								@foreach($projects as $p)
 								
 								<tr>
+									<td> {{$p->title}} </td>
+
 									<td>
-										<a href="{{$p->link}}" target='_blank'>
-											<div>
-												{{$p->title}}
-											</div>
-										</a>
+										@switch($p->type)
+											@case(1) Projeto de extensão @break
+											@case(2) Projeto de pesquisa @break
+											@case(3) Liga Acadêmica @break
+										@endswitch
 									</td>
 									
 									<td class="td-actions text-right">
-										<button class="btn btn-just-icon btn-link btn-danger" onclick="delete_info({{$p->id}}, '/api/consultations/')">
+										@if($p->attachment1 != '')
+											<a href="{{$p->attachment1}}" download>
+												<button class="btn btn-just-icon btn-link btn-warning">
+													<i class="material-icons">attach_file</i>
+												</button>
+											</a>
+										@endif
+
+										@if($p->attachment2 != '')
+											<a href="{{$p->attachment2}}" download>
+												<button class="btn btn-just-icon btn-link btn-warning">
+													<i class="material-icons">attach_file</i>
+												</button>
+											</a>
+										@endif
+
+										@if($p->attachment3 != '')
+											<a href="{{$p->attachment3}}" download>
+												<button class="btn btn-just-icon btn-link btn-warning">
+													<i class="material-icons">attach_file</i>
+												</button>
+											</a>
+										@endif
+
+										<button class="btn btn-just-icon btn-link btn-danger" onclick="delete_info({{$p->id}}, '/api/projects/')">
 											<i class="material-icons">close</i>
 										</button>
 									</td>
 								</tr>
 
 								@endforeach
-
-								<tr>
-									<td>
-										Loren Ipsum dolor
-									</td>
-									
-									<td class="td-actions text-right">
-										<button class="btn btn-just-icon btn-link btn-danger">
-											<i class="material-icons">close</i>
-										</button>
-									</td>
-								</tr>
-
 							</tbody>
 						</table>
 					</div>
