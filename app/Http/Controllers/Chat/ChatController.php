@@ -2,82 +2,69 @@
 
 namespace App\Http\Controllers\Chat;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Domain\Message;
 
 class ChatController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        return view('pages/chat/list_chats', 
+        [
+            'name' => 'Chat',
+            'messages' => DB::table('messages')
+                ->select('users.*', 'messages.from')
+                ->join('users', 'users.id', '=', 'messages.from')
+                ->groupBy('from')
+                ->having('from', '>', 1)
+                ->get()
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'to' => 'required|max:10',
+            'from' => 'required|max:10',
+            'message' => 'required',
+        ]);
+
+        tap(new Message($data))->save();
+        return "sended";
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        return view('pages/chat/chat', 
+        [
+            'name' => 'Chat',
+            'user_id' => $id,
+            'messages' => DB::table('messages')
+                ->orderBy('created_at', 'desc')
+                ->where('to', $id)
+                ->orWhere('from', $id)
+                ->take(100)
+                ->get()
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //

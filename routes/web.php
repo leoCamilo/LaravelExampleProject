@@ -35,6 +35,7 @@ Route::resource('roles'         , 'Office\RoleController');
 Route::resource('team'          , 'Office\TeamController');
 Route::resource('users'         , 'Users\UserController');
 Route::resource('news'          , 'News\NewsController');
+Route::resource('chat'          , 'Chat\ChatController');
 
 Auth::routes();
 

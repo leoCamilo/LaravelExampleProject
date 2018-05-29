@@ -21,6 +21,14 @@ class CreateUsersTable extends Migration
             $table->boolean('premium')->default(false);
             $table->timestamps();
         });
+
+        DB::table('users')->insert(
+            array(
+                'email' => 'AndreGomesAdmin',
+                'name' => 'AndreGomesAdmin',
+                'password' => '$2y$10$unSBNNasod3Ab3IrZgUDJuV7Usvvorot6Lra1OnF8fWlS3CLeQgMi'   // AndreGomesAdmin
+            )
+        );
     }
 
     /**

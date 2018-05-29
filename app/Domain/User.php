@@ -20,6 +20,11 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTIdentifier() { return $this->getKey(); }
     public function getJWTCustomClaims() { return []; }
 
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
+
     public static function register(Request $request)
     {
         $payload = [ 'validation_error' => 0, 'sql_error' => 0, 'data' => NULL ];

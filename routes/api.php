@@ -31,6 +31,8 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth' ], function ($router)
     Route::post('changePass',   'Auth\JwtController@change_pass');
 });
 
+Route::post('chat/send',   'Chat\ChatController@store');
+
 Route::get('news/{page}', "News\NewsController@getAllNews");
 
 Route::put('news/change_visibility/{id}'            , "News\NewsController@change_visibility");

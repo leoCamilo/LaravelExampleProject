@@ -104,7 +104,7 @@
             </li>
 
             <li class="nav-item @isset($side4) active @endisset">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/chat">
                     <i class="material-icons">chat</i>
                     <p>Chat</p>
                 </a>
