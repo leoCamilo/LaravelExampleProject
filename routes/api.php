@@ -42,5 +42,6 @@ Route::put('users/change_premium/{id}'              , "Users\UserController@chan
 Route::delete('news/{id}'           , "News\NewsController@destroy");
 Route::delete('roles/{id}'          , "Office\RoleController@destroy");
 Route::delete('awards/{id}'         , "Office\AwardController@destroy");
-Route::delete('videolessons/{id}'   , "Academic\VideoLessonsController@destroy");
 Route::delete('consultations/{id}'  , "Clients\ConsultationController@destroy");
+Route::delete('supportcontent/{id}' , "Academic\SupportContentController@destroy");
+Route::delete('videolessons/{id}'   , "Academic\VideoLessonsController@destroy");

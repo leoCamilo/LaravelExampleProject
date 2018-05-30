@@ -25,17 +25,18 @@ Route::get('user/login', function (Request $request){
     return $data;
 });
 
-Route::resource('consultations' , 'Clients\ConsultationController');
-Route::resource('videolessons'  , 'Academic\VideoLessonsController');
-Route::resource('projects'      , 'Academic\ProjectsController');
-Route::resource('study'         , 'Academic\StudiesController');
-Route::resource('office'        , 'Office\OfficeController');
-Route::resource('awards'        , 'Office\AwardController');
-Route::resource('roles'         , 'Office\RoleController');
-Route::resource('team'          , 'Office\TeamController');
-Route::resource('users'         , 'Users\UserController');
-Route::resource('news'          , 'News\NewsController');
-Route::resource('chat'          , 'Chat\ChatController');
+Route::resource('consultations'     , 'Clients\ConsultationController');
+Route::resource('supportcontent'    , 'Academic\SupportContentController');
+Route::resource('videolessons'      , 'Academic\VideoLessonsController');
+Route::resource('projects'          , 'Academic\ProjectsController');
+Route::resource('study'             , 'Academic\StudiesController');
+Route::resource('office'            , 'Office\OfficeController');
+Route::resource('awards'            , 'Office\AwardController');
+Route::resource('roles'             , 'Office\RoleController');
+Route::resource('team'              , 'Office\TeamController');
+Route::resource('users'             , 'Users\UserController');
+Route::resource('news'              , 'News\NewsController');
+Route::resource('chat'              , 'Chat\ChatController');
 
 Auth::routes();
 

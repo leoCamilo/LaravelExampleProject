@@ -39,7 +39,7 @@
                         </li>
 
                         <li class="nav-item @isset($side23) active @endisset">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/supportcontent">
                                 <i class="material-icons">library_books</i>
                                 <span class="sidebar-normal"> Material de apoio </span>
                             </a>
