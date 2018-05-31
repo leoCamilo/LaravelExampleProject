@@ -121,7 +121,7 @@
                 <div class="collapse @if ($clientsNotColapsed) show @endif" id="clientMenu" style="">
                     <ul class="nav">
                         <li class="nav-item @isset($side51) active @endisset">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/legaladvice">
                             <i class="material-icons">book</i>
                             <span class="sidebar-normal"> Assessoria Jurídica </span>
                             </a>

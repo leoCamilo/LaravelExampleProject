@@ -1,4 +1,4 @@
-@extends('components.app', [ 'sidemenu' => ['side23' => 1], 'navbar' => [ 'new_url' => '\supportcontent\create' ] ])
+@extends('components.app', [ 'sidemenu' => ['side51' => 1], 'navbar' => [ 'new_url' => '\legaladvice\create' ] ])
 @section('content')
 
 <div class="container-fluid">
@@ -7,10 +7,10 @@
 			<div class="card">
 				<div class="card-header card-header-icon card-header-warning">
 					<div class="card-icon">
-						<i class="material-icons">library_books</i>
+						<i class="material-icons">book</i>
 					</div>
 					
-					<h4 class="card-title ">Material de apoio</h4>
+					<h4 class="card-title ">Assessoria Jurídica</h4>
 				</div>
 
 				<div class="card-body">
@@ -26,24 +26,22 @@
 
 							<tbody>
 
-								@foreach($support_content as $sc)
-								<tr >
-									<td> {{$sc->title}} </td>
-									
+								@foreach($legaladvice as $la)
+								<tr>
+									<td> {{$la->title}} </td>
+
 									<td class="td-actions text-right">
-										@if($sc->premium)
-										<i class="material-icons">check</i>
-										@endif
+										{{$la->name}}
 									</td>
 
 									<td class="td-actions text-right">
-										<a href="{{$sc->link}}" download>
+										<a href="{{$la->link}}" download>
 											<button class="btn btn-just-icon btn-link btn-warning">
 												<i class="material-icons">attach_file</i>
 											</button>
 										</a>
 
-										<button class="btn btn-just-icon btn-link btn-danger" onclick="delete_info({{$sc->id}}, '/api/supportcontent/')">
+										<button class="btn btn-just-icon btn-link btn-danger" onclick="delete_info({{$la->id}}, '/api/legaladvice/')">
 											<i class="material-icons">close</i>
 										</button>
 									</td>

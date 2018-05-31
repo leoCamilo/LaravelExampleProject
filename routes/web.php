@@ -25,6 +25,7 @@ Route::get('user/login', function (Request $request){
     return $data;
 });
 
+Route::resource('legaladvice'       , 'Clients\LegalAdviceController');
 Route::resource('consultations'     , 'Clients\ConsultationController');
 Route::resource('supportcontent'    , 'Academic\SupportContentController');
 Route::resource('videolessons'      , 'Academic\VideoLessonsController');
