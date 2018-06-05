@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 
 class StudiesController extends Controller
 {
+    public function __construct() { $this->middleware('auth'); }
+    
     public function index()
     {
         return view('pages/academic/list_quiz', [ 'name' => 'Estudo' ]);

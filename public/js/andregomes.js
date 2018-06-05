@@ -66,6 +66,27 @@ function set_visibility(id, url)
 	}).catch(swal.noop)
 }
 
+function logout_user()
+{
+	swal({
+		title: 'Deseja sair?',
+		type: 'warning',
+		showCancelButton: true,
+		confirmButtonClass: 'btn btn-danger',
+		cancelButtonClass: 'btn btn-success',
+		confirmButtonText: 'Sim, quero sair!',
+		buttonsStyling: false
+	}).then(function() {
+		$.ajax({
+			headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+			type: 'POST',
+			url: "/logout",
+			success: () => window.location.href = '/login'
+		});
+
+	}).catch(swal.noop)
+}
+
 function set_user_premium(id, element){ $.ajax({ url: 'api/users/change_premium/' + id, type: 'PUT' }); }
 
 function send_msg(id)

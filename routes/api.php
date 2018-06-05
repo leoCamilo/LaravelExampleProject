@@ -46,3 +46,4 @@ Route::delete('legaladvice/{id}'    , "Clients\LegalAdviceController@destroy");
 Route::delete('consultations/{id}'  , "Clients\ConsultationController@destroy");
 Route::delete('supportcontent/{id}' , "Academic\SupportContentController@destroy");
 Route::delete('videolessons/{id}'   , "Academic\VideoLessonsController@destroy");
+Route::delete('projects/{id}'       , "Academic\ProjectsController@destroy");

@@ -45,12 +45,12 @@
                             </a>
                         </li>
 
-                        <li class="nav-item @isset($side24) active @endisset">
+                        <!-- <li class="nav-item @isset($side24) active @endisset">
                             <a class="nav-link" href="#">
                                 <i class="material-icons">account_balance</i>
                                 <span class="sidebar-normal"> Legislação </span>
                             </a>
-                        </li>
+                        </li> -->
 
                         <li class="nav-item @isset($side25) active @endisset">
                             <a class="nav-link" href="/projects">
@@ -145,7 +145,8 @@
             </li>
 
             <li class="nav-item @isset($side7) active @endisset">
-                <a class="nav-link" href="#">
+                <meta name="csrf-token" content="{{ csrf_token() }}">
+                <a class="nav-link" href="#" onclick="logout_user()">
                     <i class="material-icons">exit_to_app</i>
                     <p>Sair</p>
                 </a>

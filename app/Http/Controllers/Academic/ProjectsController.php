@@ -8,6 +8,8 @@ use App\Domain\Projects;
 
 class ProjectsController extends Controller
 {
+    public function __construct() { $this->middleware('auth')->except('destroy'); }
+    
     public function index()
     {
         return view('pages/academic/list_projects', 
@@ -71,13 +73,6 @@ class ProjectsController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //

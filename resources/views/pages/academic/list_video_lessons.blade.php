@@ -13,6 +13,7 @@
 
 				<div class="card-body">
 					<h4 class="card-title">
+						@if ($v->premium) <span class="badge badge-warning">premium</span><br><br> @endif
 						{{$v->title}}
 					</h4>
 				</div>

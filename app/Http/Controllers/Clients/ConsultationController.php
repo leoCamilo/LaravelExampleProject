@@ -8,6 +8,8 @@ use App\Domain\Consultation;
 
 class ConsultationController extends Controller
 {
+    public function __construct() { $this->middleware('auth')->except('destroy'); }
+
     public function index()
     {
         return view('pages/clients/list_consultations', 

@@ -30,15 +30,15 @@
 				</div>
 			</form> -->
 			
-			<ul class="navbar-nav">
-				<!-- <li class="nav-item">
+			<!-- <ul class="navbar-nav">
+				<li class="nav-item">
 					<a class="nav-link" href="#pablo">
 						<i class="material-icons">dashboard</i>
 						<p>
 							<span class="d-lg-none d-md-block">Stats</span>
 						</p>
 					</a>
-				</li> -->
+				</li>
 				
 				<li class="nav-item dropdown">
 					<a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -57,15 +57,15 @@
 					</div>
 				</li>
 				
-				<!-- <li class="nav-item">
+				<li class="nav-item">
 					<a class="nav-link" href="#pablo">
 						<i class="material-icons">person</i>
 						<p>
 							<span class="d-lg-none d-md-block">Account</span>
 						</p>
 					</a>
-				</li> -->
-			</ul>
+				</li>
+			</ul> -->
 		</div>
 	</div>
 </nav>

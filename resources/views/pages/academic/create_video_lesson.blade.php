@@ -30,7 +30,24 @@
 							</div>
 						</div>
 
-						<button type="submit" onclick="show_save_loading()" class="btn btn-warning pull-right">Adicionar</button>
+						<div class="row">
+							<div class="col-md-2">
+								<div class="form-check">
+									<label class="form-check-label">
+										Premium
+										<input name="premium" class="form-check-input" type="checkbox" value="1">
+										<span class="form-check-sign">
+											<span class="check"></span>
+										</span>
+									</label>
+								</div>
+							</div>
+							
+							<div class="col-md-10">
+								<button type="submit" onclick="show_save_loading()" class="btn btn-warning pull-right">Adicionar</button>
+							</div>
+						</div>
+						
 						<div class="clearfix"></div>
 					</form>
 				</div>

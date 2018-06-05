@@ -8,6 +8,8 @@ use App\Domain\SupportContent;
 
 class SupportContentController extends Controller
 {
+    public function __construct() { $this->middleware('auth')->except('destroy'); }
+    
     public function index()
     {
         return view('pages/academic/list_support_content', 
@@ -24,7 +26,7 @@ class SupportContentController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->validate([ 'title' => 'required|max:300' ]);
+        $data = $request->validate([ 'title' => 'required|max:300', 'premium' => 'sometimes' ]);
 
         if ($request->hasFile('attachment'))
         {

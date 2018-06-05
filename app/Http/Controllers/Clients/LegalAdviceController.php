@@ -2,19 +2,22 @@
 
 namespace App\Http\Controllers\Clients;
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Domain\LegalAdvice;
 
 class LegalAdviceController extends Controller
 {
+    public function __construct() { $this->middleware('auth')->except('destroy'); }
+    
     public function index()
     {
         return view('pages/clients/list_legal_advice', 
         [
             'name' => 'Assessoria Jurídica',
             'legaladvice' => DB::table('legal_advices')
+                ->select('users.name as name', 'legal_advices.*')
                 ->join('users', 'users.id', '=', 'legal_advices.user_id')
                 ->orderBy('name')
                 ->get()

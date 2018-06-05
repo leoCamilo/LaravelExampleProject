@@ -11,19 +11,7 @@
 |
 */
 
-use App\User;
-
-Route::get('/', function () {
-    return view('pages/test', [ 'name' => 'Novidades' ]);
-});
-
-Route::get('user/login', function (Request $request){
-    $data = User::login($request);
-
-    // add view and other stuffs to show
-
-    return $data;
-});
+Route::get('/', function () { return redirect('login'); });
 
 Route::resource('legaladvice'       , 'Clients\LegalAdviceController');
 Route::resource('consultations'     , 'Clients\ConsultationController');
@@ -40,5 +28,3 @@ Route::resource('news'              , 'News\NewsController');
 Route::resource('chat'              , 'Chat\ChatController');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

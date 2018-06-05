@@ -8,6 +8,8 @@ use App\Domain\VideoLesson;
 
 class VideoLessonsController extends Controller
 {
+    public function __construct() { $this->middleware('auth')->except('destroy', 'change_visibility'); }
+    
     public function index()
     {
         return view('pages/academic/list_video_lessons', 
@@ -26,7 +28,8 @@ class VideoLessonsController extends Controller
     {
         $data = $request->validate([
             'title' => 'required|max:255',
-            'link' => 'required|url|max:255'
+            'link' => 'required|url|max:255',
+            'premium' => 'sometimes'
         ]);
 
         $data['link'] = (int) substr(parse_url($data['link'], PHP_URL_PATH), 1);        

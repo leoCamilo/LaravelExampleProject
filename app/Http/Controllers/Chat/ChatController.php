@@ -9,6 +9,8 @@ use App\Domain\Message;
 
 class ChatController extends Controller
 {
+    public function __construct() { $this->middleware('auth')->except('store'); }
+
     public function index()
     {
         return view('pages/chat/list_chats', 

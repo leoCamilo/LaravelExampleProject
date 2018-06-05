@@ -17,6 +17,7 @@ class CreateVideoLessonsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('link');
+            $table->boolean('premium')->default(false);
             $table->boolean('visible')->default(true);
             $table->timestamps();
         });

@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 
 class LegislationController extends Controller
 {
+    public function __construct() { $this->middleware('auth'); }
+    
     public function index()
     {
         //

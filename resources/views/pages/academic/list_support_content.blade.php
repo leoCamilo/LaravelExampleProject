@@ -19,7 +19,7 @@
 							<thead>
 								<tr>
 									<th>Título</th>
-									<th class="text-right">Cliente</th>
+									<th class="text-right">Premium</th>
 									<th class="text-right"></th>
 								</tr>
 							</thead>

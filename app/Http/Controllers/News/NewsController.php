@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers\News;
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Domain\News;
 
 class NewsController extends Controller
 {
+    public function __construct() { $this->middleware('auth')->except('change_visibility', 'destroy'); }
+
     public function index()
     {
-        return view('pages/news/list_news', 
+        return view('pages/news/list_news',
         [
             'name' => 'Novidades',
             'news' => News::all()

@@ -8,6 +8,8 @@ use App\Domain\Award;
 
 class AwardController extends Controller
 {
+    public function __construct() { $this->middleware('auth')->except('destroy'); }
+
     public function index()
     {
         return view('pages/office/list_awards', 
