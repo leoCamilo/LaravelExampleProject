@@ -10,7 +10,7 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('quizzes_id');
+            $table->integer('quiz_id');
             $table->integer('correct');
             $table->text('question');
             $table->text('answer_1');

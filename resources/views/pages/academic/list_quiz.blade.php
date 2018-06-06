@@ -26,37 +26,23 @@
 							</thead>
 							
 							<tbody>
-								<tr>
-									<td>Direito Penal</td>
-									<td class="text-right">20</td>
-									<td class="text-right">70%</td>
+								@foreach($quizzes as $q)
+									<tr>
+										<td>{{$q->title}}</td>
+										<td class="text-right">{{count($q->questions)}}</td>
+										<td class="text-right">{{$q->hits}}%</td>
 
-									<td class="td-actions text-right">
-										<button class="btn btn-just-icon btn-link btn-warning">
-											<i class="material-icons">edit</i>
-										</button>
+										<td class="td-actions text-right">
+											<!-- <button class="btn btn-just-icon btn-link btn-warning">
+												<i class="material-icons">edit</i>
+											</button> -->
 
-										<button class="btn btn-just-icon btn-link btn-danger">
-											<i class="material-icons">close</i>
-										</button>
-									</td>
-								</tr>
-
-								<tr>
-									<td>Direito Civil</td>
-									<td class="text-right">20</td>
-									<td class="text-right">70%</td>
-
-									<td class="td-actions text-right">
-										<button class="btn btn-just-icon btn-link btn-warning">
-											<i class="material-icons">edit</i>
-										</button>
-
-										<button class="btn btn-just-icon btn-link btn-danger">
-											<i class="material-icons">close</i>
-										</button>
-									</td>
-								</tr>
+											<button class="btn btn-just-icon btn-link btn-danger">
+												<i class="material-icons">close</i>
+											</button>
+										</td>
+									</tr>
+								@endforeach
 							</tbody>
 						</table>
 					</div>

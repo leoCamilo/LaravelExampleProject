@@ -17,6 +17,16 @@
 					</div>
 
 					<div class="card-body">
+						<br>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group has-warning">
+									<label class="bmd-label-floating">Título do questionário</label>
+									<input name="title" type="text" class="form-control" required="true" aria-required="true">
+								</div>
+							</div>
+						</div>
+
 						<div id="questions_div" role="tablist">		<!-- HERE questions are added -->
 
 							<div class="card-collapse">
@@ -35,7 +45,7 @@
 											<div class="col-md-12">
 												<div class="form-group has-warning">
 													<div class="form-group">
-														<textarea id="content" name="content" class="form-control" rows="5" required="true" aria-required="true">Digite a pergunta aqui!</textarea>
+														<textarea name="content_1" class="form-control" rows="5" required="true" aria-required="true" placeholder="Digite a pergunta aqui!"></textarea>
 													</div>
 												</div>
 											</div>
@@ -45,7 +55,7 @@
 											<div class="col-md-1 checkbox-radios text-center">
 												<div class="form-check">
 													<label class="form-check-label">
-														<input class="form-check-input" type="radio" name="correctOpt" value="1" checked="">
+														<input class="form-check-input" type="radio" name="correct_opt_1" value="1" checked="">
 														<span class="circle">
 															<span class="check"></span>
 														</span>
@@ -56,7 +66,7 @@
 											<div class="col-md-11">
 												<div class="form-group has-warning">
 													<label class="bmd-label-floating">resposta</label>
-													<input id="title" name="title" type="text" class="form-control" required="true" aria-required="true">
+													<input name="answer1_1" type="text" class="form-control" required="true" aria-required="true">
 												</div>
 											</div>
 										</div>
@@ -65,7 +75,7 @@
 											<div class="col-md-1 checkbox-radios text-center">
 												<div class="form-check">
 													<label class="form-check-label">
-														<input class="form-check-input" type="radio" name="correctOpt" value="2">
+														<input class="form-check-input" type="radio" name="correct_opt_1" value="2">
 														<span class="circle">
 															<span class="check"></span>
 														</span>
@@ -76,7 +86,7 @@
 											<div class="col-md-11">
 												<div class="form-group has-warning">
 													<label class="bmd-label-floating">resposta</label>
-													<input id="title" name="title" type="text" class="form-control" required="true" aria-required="true">
+													<input name="answer2_1" type="text" class="form-control" required="true" aria-required="true">
 												</div>
 											</div>
 										</div>
@@ -85,7 +95,7 @@
 											<div class="col-md-1 checkbox-radios text-center">
 												<div class="form-check">
 													<label class="form-check-label">
-														<input class="form-check-input" type="radio" name="correctOpt" value="3">
+														<input class="form-check-input" type="radio" name="correct_opt_1" value="3">
 														<span class="circle">
 															<span class="check"></span>
 														</span>
@@ -96,7 +106,7 @@
 											<div class="col-md-11">
 												<div class="form-group has-warning">
 													<label class="bmd-label-floating">resposta</label>
-													<input id="title" name="title" type="text" class="form-control" required="true" aria-required="true">
+													<input name="answer3_1" type="text" class="form-control" required="true" aria-required="true">
 												</div>
 											</div>
 										</div>
@@ -105,7 +115,7 @@
 											<div class="col-md-1 checkbox-radios text-center">
 												<div class="form-check">
 													<label class="form-check-label">
-														<input class="form-check-input" type="radio" name="correctOpt" value="4">
+														<input class="form-check-input" type="radio" name="correct_opt_1" value="4">
 														<span class="circle">
 															<span class="check"></span>
 														</span>
@@ -116,7 +126,7 @@
 											<div class="col-md-11">
 												<div class="form-group has-warning">
 													<label class="bmd-label-floating">resposta</label>
-													<input id="title" name="title" type="text" class="form-control" required="true" aria-required="true">
+													<input name="answer4_1" type="text" class="form-control" required="true" aria-required="true">
 												</div>
 											</div>
 										</div>
@@ -125,7 +135,7 @@
 											<div class="col-md-1 checkbox-radios text-center">
 												<div class="form-check">
 													<label class="form-check-label">
-														<input class="form-check-input" type="radio" name="correctOpt" value="5">
+														<input class="form-check-input" type="radio" name="correct_opt_1" value="5">
 														<span class="circle">
 															<span class="check"></span>
 														</span>
@@ -136,7 +146,7 @@
 											<div class="col-md-11">
 												<div class="form-group has-warning">
 													<label class="bmd-label-floating">resposta</label>
-													<input id="title" name="title" type="text" class="form-control" required="true" aria-required="true">
+													<input name="answer5_1" type="text" class="form-control" required="true" aria-required="true">
 												</div>
 											</div>
 										</div>
@@ -148,7 +158,7 @@
 					</div>
 
 					<div class="card-footer">
-						<button type="button" class="btn btn-block btn-warning">Salvar</button>
+						<button type="submit" class="btn btn-block btn-warning">Salvar</button>
 					</div>
 				</div>
 			</form>
