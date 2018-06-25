@@ -20,8 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('auth/register', function (Request $request) { return response()->json(User::register($request)); });
-
 Route::group(['middleware' => 'api', 'prefix' => 'auth' ], function ($router)
 {
     Route::post('login',        'Auth\JwtController@login');
@@ -33,7 +31,24 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth' ], function ($router)
 
 Route::post('chat/send',   'Chat\ChatController@store');
 
-Route::get('news/{page}', "News\NewsController@getAllNews");
+// TODO: see needed of cors middleware here
+
+Route::group(['middleware' => 'cors' ], function ($router)
+{
+    Route::get('academic/get_projects/{id}' , "Academic\ProjectsController@get_by_type");
+    Route::get('academic/content'           , "Academic\SupportContentController@get_all");
+    Route::get('videos/all'                 , "Academic\VideoLessonsController@getAllVideos");
+    Route::get('news/{page}'                , "News\NewsController@getAllNews");
+    Route::get('office/get_info'            , "Office\OfficeController@get_office_description");
+    Route::get('office/get_team'            , "Office\TeamController@get_team_description");
+    Route::get('office/get_role'            , "Office\RoleController@get_all");
+    Route::get('office/get_awards'          , "Office\AwardController@get_all");
+    Route::get('client/get_docs/{id}'       , "Clients\LegalAdviceController@get_data_by_id");
+    Route::get('client/get_links'           , "Clients\ConsultationController@get_all");
+    Route::get('chat/get_by_user/{id}'      , "Chat\ChatController@get_user_msg");
+
+    Route::post('auth/register', function (Request $request) { return response()->json(User::register($request)); });
+});
 
 Route::put('news/change_visibility/{id}'            , "News\NewsController@change_visibility");
 Route::put('videolessons/change_visibility/{id}'    , "Academic\VideoLessonsController@change_visibility");

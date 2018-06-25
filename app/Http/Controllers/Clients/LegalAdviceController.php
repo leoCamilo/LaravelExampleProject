@@ -9,7 +9,7 @@ use App\Domain\LegalAdvice;
 
 class LegalAdviceController extends Controller
 {
-    public function __construct() { $this->middleware('auth')->except('destroy'); }
+    public function __construct() { $this->middleware('auth')->except('destroy', 'get_data_by_id'); }
     
     public function index()
     {
@@ -22,6 +22,11 @@ class LegalAdviceController extends Controller
                 ->orderBy('name')
                 ->get()
         ]);
+    }
+
+    public function get_data_by_id($id)
+    {
+        return response()->json(LegalAdvice::where('user_id', $id)->get());
     }
 
     public function create()

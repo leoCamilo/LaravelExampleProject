@@ -9,7 +9,13 @@ use App\Domain\News;
 
 class NewsController extends Controller
 {
-    public function __construct() { $this->middleware('auth')->except('change_visibility', 'destroy'); }
+    public function __construct() {
+        $this->middleware('auth')->except(
+            'change_visibility',
+            'destroy',
+            'getAllNews'
+        );
+    }
 
     public function index()
     {

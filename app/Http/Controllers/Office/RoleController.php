@@ -8,7 +8,7 @@ use App\Domain\Role;
 
 class RoleController extends Controller
 {
-    public function __construct() { $this->middleware('auth')->except('destroy'); }
+    public function __construct() { $this->middleware('auth')->except('destroy', 'get_all'); }
 
     public function index()
     {
@@ -17,6 +17,11 @@ class RoleController extends Controller
             'name' => 'Atuação',
             'roles' => Role::all()
         ]);
+    }
+
+    public function get_all()
+    {
+        return response()->json(Role::all());
     }
 
     public function create()

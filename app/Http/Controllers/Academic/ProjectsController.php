@@ -8,7 +8,7 @@ use App\Domain\Projects;
 
 class ProjectsController extends Controller
 {
-    public function __construct() { $this->middleware('auth')->except('destroy'); }
+    public function __construct() { $this->middleware('auth')->except('destroy', 'get_by_type'); }
     
     public function index()
     {
@@ -17,6 +17,11 @@ class ProjectsController extends Controller
             'name' => 'Projetos',
             'projects' => Projects::all()
         ]);
+    }
+
+    public function get_by_type($type)
+    {
+        return response()->json(Projects::where('id', '=', $type)->get());
     }
 
     public function create()

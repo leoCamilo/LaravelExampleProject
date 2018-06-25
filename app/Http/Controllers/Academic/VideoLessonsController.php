@@ -8,8 +8,13 @@ use App\Domain\VideoLesson;
 
 class VideoLessonsController extends Controller
 {
-    public function __construct() { $this->middleware('auth')->except('destroy', 'change_visibility'); }
+    public function __construct() { $this->middleware('auth')->except('destroy', 'change_visibility', 'getAllVideos'); }
     
+    public function getAllVideos()
+    {
+        return response()->json(VideoLesson::all());
+    }
+
     public function index()
     {
         return view('pages/academic/list_video_lessons', 

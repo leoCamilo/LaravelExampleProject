@@ -9,7 +9,7 @@ use App\Domain\Message;
 
 class ChatController extends Controller
 {
-    public function __construct() { $this->middleware('auth')->except('store'); }
+    public function __construct() { $this->middleware('auth')->except('store', 'get_user_msg'); }
 
     public function index()
     {
@@ -23,6 +23,15 @@ class ChatController extends Controller
                 ->having('from', '>', 1)
                 ->get()
         ]);
+    }
+
+    public function get_user_msg($id){
+        return DB::table('messages')
+            ->orderBy('created_at', 'desc')
+            ->where('to', $id)
+            ->orWhere('from', $id)
+            ->take(100)
+            ->get();
     }
 
     public function create()

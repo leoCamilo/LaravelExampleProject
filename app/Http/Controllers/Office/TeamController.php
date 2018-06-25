@@ -8,7 +8,7 @@ use App\Domain\Team;
 
 class TeamController extends Controller
 {
-    public function __construct() { $this->middleware('auth'); }
+    public function __construct() { $this->middleware('auth')->except('get_team_description'); }
 
     public function index()
     {
@@ -17,6 +17,11 @@ class TeamController extends Controller
             'name' => 'Equipe',
             'team' => Team::find(1)
         ]);
+    }
+
+    public function get_team_description()
+    {
+        return response()->json(Team::find(1));
     }
 
     public function create() { }

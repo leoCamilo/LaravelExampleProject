@@ -8,7 +8,7 @@ use App\Domain\Office;
 
 class OfficeController extends Controller
 {
-    public function __construct() { $this->middleware('auth'); }
+    public function __construct() { $this->middleware('auth')->except('get_office_description'); }
 
     public function index()
     {
@@ -17,6 +17,11 @@ class OfficeController extends Controller
             'name' => 'Escritório',
             'office' => Office::find(1)
         ]);
+    }
+
+    public function get_office_description()
+    {
+        return response()->json(Office::find(1));
     }
 
     public function create() { }

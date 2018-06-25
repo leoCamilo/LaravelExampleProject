@@ -8,7 +8,7 @@ use App\Domain\Award;
 
 class AwardController extends Controller
 {
-    public function __construct() { $this->middleware('auth')->except('destroy'); }
+    public function __construct() { $this->middleware('auth')->except('destroy', 'get_all'); }
 
     public function index()
     {
@@ -17,6 +17,11 @@ class AwardController extends Controller
             'name' => 'Prêmios',
             'awards' => Award::all()
         ]);
+    }
+
+    public function get_all()
+    {
+        return response()->json(Award::all());
     }
 
     public function create()

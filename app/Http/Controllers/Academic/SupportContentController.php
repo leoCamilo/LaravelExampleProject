@@ -8,7 +8,7 @@ use App\Domain\SupportContent;
 
 class SupportContentController extends Controller
 {
-    public function __construct() { $this->middleware('auth')->except('destroy'); }
+    public function __construct() { $this->middleware('auth')->except('destroy', 'get_all'); }
     
     public function index()
     {
@@ -17,6 +17,11 @@ class SupportContentController extends Controller
             'name' => 'Material de apoio',
             'support_content' => SupportContent::all()
         ]);
+    }
+
+    public function get_all()
+    {
+        return response()->json(SupportContent::all());
     }
 
     public function create()

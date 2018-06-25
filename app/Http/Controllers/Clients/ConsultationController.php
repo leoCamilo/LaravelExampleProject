@@ -8,7 +8,7 @@ use App\Domain\Consultation;
 
 class ConsultationController extends Controller
 {
-    public function __construct() { $this->middleware('auth')->except('destroy'); }
+    public function __construct() { $this->middleware('auth')->except('destroy', 'get_all'); }
 
     public function index()
     {
@@ -17,6 +17,11 @@ class ConsultationController extends Controller
             'name' => 'Consulta',
             'consultations' => Consultation::all()
         ]);
+    }
+
+    public function get_all()
+    {
+        return response()->json(Consultation::all());
     }
 
     public function create()
