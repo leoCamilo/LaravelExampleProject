@@ -8,7 +8,7 @@ use App\Domain\User;
 
 class UserController extends Controller
 {
-    public function __construct() { $this->middleware('auth')->except('change_premium');; }
+    public function __construct() { $this->middleware('auth')->except('change_premium'); }
 
     public function index()
     {

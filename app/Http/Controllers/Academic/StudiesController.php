@@ -9,7 +9,7 @@ use App\Domain\Quiz;
 
 class StudiesController extends Controller
 {
-    public function __construct() { $this->middleware('auth'); }
+    public function __construct() { $this->middleware('auth')->except('get_all'); }
     
     public function index()
     {
@@ -17,6 +17,17 @@ class StudiesController extends Controller
             'name' => 'Estudo',
             'quizzes' => Quiz::all()
         ]);
+    }
+
+    public function get_all()
+    {
+        $quizes = Quiz::all();
+        
+        foreach ($quizes as $quiz) {
+            $quiz['questions'] = Question::where('quiz_id', '=', $quiz['id'])->get();
+        }
+        
+        return $quizes;
     }
 
     public function create()

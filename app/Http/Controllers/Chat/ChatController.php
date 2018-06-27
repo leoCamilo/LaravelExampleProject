@@ -27,7 +27,7 @@ class ChatController extends Controller
 
     public function get_user_msg($id){
         return DB::table('messages')
-            ->orderBy('created_at', 'desc')
+            ->orderBy('created_at')
             ->where('to', $id)
             ->orWhere('from', $id)
             ->take(100)

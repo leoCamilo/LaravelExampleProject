@@ -21,7 +21,8 @@ class JwtController extends Controller
         if (!$token = auth()->attempt($credentials))
             return response()->json(['error' => 'unauthorized'], 401);
 
-        return $this->respondWithToken($token);
+        // return $this->respondWithToken($token);
+        return response()->json(auth()->user());
     }
 
     public function me() { return response()->json(auth()->user()); }
