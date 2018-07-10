@@ -17,10 +17,22 @@
 						@csrf
 
 						<div class="row">
-							<div class="col-md-12">
+							<div class="col-md-8">
 								<div class="form-group has-warning">
 									<label class="bmd-label-floating">Titulo da consulta</label>
 									<input id="title" name="title" type="text" class="form-control" required="true" aria-required="true">
+								</div>
+							</div>
+
+							<div class="col-md-4">
+								<div class="btn-group bootstrap-select">
+									<select name="type" class="selectpicker" data-size="5" data-style="btn btn-warning btn-round" title="Projetos de extensão" tabindex="-98">
+										<option value="1" selected>Justiça comum</option>
+										<option value="2">Justiça Federal</option>
+										<option value="3">Justiça do Trabalho</option>
+										<option value="4">Justiça Eleitoral</option>
+										<option value="5">Tribunais Superiores</option>
+									</select>
 								</div>
 							</div>
 						</div>

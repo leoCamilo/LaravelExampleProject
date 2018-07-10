@@ -28,6 +28,16 @@
 										</a>
 									</td>
 									
+									<td>
+										@switch($c->type)
+											@case(1) Justiça comum @break
+											@case(2) Justiça Federal @break
+											@case(3) Justiça do Trabalho @break
+											@case(4) Justiça Eleitoral @break
+											@case(5) Tribunais Superiores @break
+										@endswitch
+									</td>
+
 									<td class="td-actions text-right">
 										<button class="btn btn-just-icon btn-link btn-danger" onclick="delete_info({{$c->id}}, '/api/consultations/')">
 											<i class="material-icons">close</i>

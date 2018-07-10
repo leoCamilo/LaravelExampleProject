@@ -49,21 +49,21 @@
 							<div class="col-md-2">
 								<span class="btn btn-warning btn-file">
                                     <span>Anexo 1</span>
-									<input type="file" name="attachment1">
+									<input type="file" name="attachment1" accept="application/pdf" data-max-size="1374575">
                                 </span>
 							</div>
 
 							<div class="col-md-2">
 								<span class="btn btn-warning btn-file">
                                     <span>Anexo 2</span>
-									<input type="file" name="attachment2">
+									<input type="file" name="attachment2" accept="application/pdf" data-max-size="1374575">
                                 </span>
 							</div>
 
 							<div class="col-md-2">
 								<span class="btn btn-warning btn-file">
                                     <span>Anexo 3</span>
-									<input type="file" name="attachment3">
+									<input type="file" name="attachment3" accept="application/pdf" data-max-size="1374575">
                                 </span>
 							</div>
 							
@@ -77,5 +77,28 @@
 		</div>
 	</div>
 </div>
+
+<script>
+	$(function(){
+		$('form').submit(function(){
+			var isOk = true;
+			
+			$('input[type=file][data-max-size]').each(function(){
+				if(typeof this.files[0] !== 'undefined'){
+					var maxSize = parseInt($(this).attr('max-size'), 10),
+					size = this.files[0].size;
+					isOk = maxSize > size;
+
+					if (!isOk)
+						alert('arquivo muito grande');
+
+					return isOk;
+				}
+			});
+			
+			return isOk;
+		});
+	});
+</script>
 
 @endsection

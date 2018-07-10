@@ -17,7 +17,7 @@ use Illuminate\Http\Request;
 use App\Domain\User;
 
 header('Access-Control-Allow-Origin: *');
-header( 'Access-Control-Allow-Headers: Authorization, Content-Type' );
+header('Access-Control-Allow-Headers: Authorization, Content-Type');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
@@ -68,3 +68,4 @@ Route::delete('consultations/{id}'  , "Clients\ConsultationController@destroy");
 Route::delete('supportcontent/{id}' , "Academic\SupportContentController@destroy");
 Route::delete('videolessons/{id}'   , "Academic\VideoLessonsController@destroy");
 Route::delete('projects/{id}'       , "Academic\ProjectsController@destroy");
+Route::delete('study/{id}'          , "Academic\StudiesController@destroy");

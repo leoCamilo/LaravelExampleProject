@@ -27,7 +27,7 @@
 										<span class="btn btn-warning btn-round btn-file">
 											<span class="fileinput-new">Select image</span>
 											<span class="fileinput-exists">Change</span>
-											<input type="file" name="news_img" accept="image/gif, image/jpeg, image/png">
+											<input type="file" name="news_img" accept="image/gif, image/jpeg, image/png" required>
 										</span>
 										<a href="#" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
 									</div>
@@ -37,14 +37,14 @@
 							<div class="col-md-8">
 								<div class="form-group has-warning">
 									<label class="bmd-label-floating">Título</label>
-									<input id="title" name="title" type="text" class="form-control" required="true" aria-required="true">
+									<input id="title" name="title" type="text" class="form-control" required aria-required="true">
 								</div>
 
 								<div class="form-group has-warning">
 									<label>Conteúdo</label>
 									
 									<div class="form-group">
-										<textarea id="content" name="content" class="form-control" rows="7" required="true" aria-required="true"></textarea>
+										<textarea id="content" name="content" class="form-control" rows="7" required aria-required="true"></textarea>
 									</div>
 								</div>
 							</div>

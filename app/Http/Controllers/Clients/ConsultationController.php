@@ -31,7 +31,7 @@ class ConsultationController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->validate([ 'title' => 'required|max:255', 'link' => 'required|max:255' ]);
+        $data = $request->validate([ 'title' => 'required|max:255', 'link' => 'required|max:255', 'type' => 'required' ]);
         tap(new Consultation($data))->save();
         return redirect('consultations');
     }

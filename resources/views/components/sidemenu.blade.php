@@ -1,7 +1,7 @@
 <div class="sidebar" data-color="orange" data-background-color="white">
     <div class="logo">
         <a href="#" class="simple-text logo-normal text-center">
-            {{ config('app.name', 'Laravel') }}
+            Admin André
         </a>
     </div>
 

@@ -19,8 +19,8 @@
 							<thead>
 								<tr>
 									<th>Nome</th>
-									<th class="text-right">Quatidade de perguntas</th>
-									<th class="text-right">Porcentagem de Acerto</th>
+									<th class="text-right">Quantidade de perguntas</th>
+									{{--  <th class="text-right">Porcentagem de Acerto</th>  --}}
 									<th class="text-right"></th>
 								</tr>
 							</thead>
@@ -30,14 +30,14 @@
 									<tr>
 										<td>{{$q->title}}</td>
 										<td class="text-right">{{count($q->questions)}}</td>
-										<td class="text-right">{{$q->hits}}%</td>
+										{{--  <td class="text-right">{{$q->hits}}%</td>  --}}
 
 										<td class="td-actions text-right">
 											<!-- <button class="btn btn-just-icon btn-link btn-warning">
 												<i class="material-icons">edit</i>
 											</button> -->
 
-											<button class="btn btn-just-icon btn-link btn-danger">
+											<button class="btn btn-just-icon btn-link btn-danger" onclick="delete_info({{$q->id}}, '/api/study/')">
 												<i class="material-icons">close</i>
 											</button>
 										</td>

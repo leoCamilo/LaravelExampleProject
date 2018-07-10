@@ -15,7 +15,9 @@
 
 				<div class="card-body">
 					<h4 class="card-title">
-						{{ $n->title }}
+						<a href="/news/{{ $n->id }}">
+							{{ $n->title }}
+						</a>
 					</h4>
 					<div class="card-description">
 						{{ substr($n->content, 0, 144)."..." }}

@@ -9,7 +9,7 @@ use App\Domain\Quiz;
 
 class StudiesController extends Controller
 {
-    public function __construct() { $this->middleware('auth')->except('get_all'); }
+    public function __construct() { $this->middleware('auth')->except('get_all', 'destroy'); }
     
     public function index()
     {
@@ -77,6 +77,11 @@ class StudiesController extends Controller
 
     public function destroy($id)
     {
-        //
+        $quiz = Quiz::find($id);
+        $quiz->delete();
+
+        // TODO: delete questions
+        
+        return response()->json([ 'success' => 'true' ]);
     }
 }

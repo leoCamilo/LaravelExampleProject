@@ -28,3 +28,7 @@ Route::resource('news'              , 'News\NewsController');
 Route::resource('chat'              , 'Chat\ChatController');
 
 Auth::routes();
+
+Route::match(['get', 'post'], 'register', function() { return redirect('/'); });
+
+Route::post('login', "Auth\LoginController@login");
