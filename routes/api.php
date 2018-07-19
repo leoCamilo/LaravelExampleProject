@@ -41,8 +41,8 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth' ], function ($router)
 // ====================================================================================================
 
 Route::get('academic/get_projects/{id}' , "Academic\ProjectsController@get_by_type");
+Route::get('academic/study/{id}'        , "Academic\StudiesController@get_all");
 Route::get('academic/content'           , "Academic\SupportContentController@get_all");
-Route::get('academic/study'             , "Academic\StudiesController@get_all");
 Route::get('videos/all'                 , "Academic\VideoLessonsController@getAllVideos");
 Route::get('news/{page}'                , "News\NewsController@getAllNews");
 Route::get('office/get_info'            , "Office\OfficeController@get_office_description");

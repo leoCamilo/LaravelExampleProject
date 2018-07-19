@@ -22,15 +22,9 @@ class StudiesController extends Controller
         ]);
     }
 
-    public function get_all()
+    public function get_all($id)
     {
-        $quizes = Quiz::all();
-        
-        foreach ($quizes as $quiz) {
-            $quiz['questions'] = Question::where('quiz_id', '=', $quiz['id'])->get();
-        }
-        
-        return $quizes;
+        return Question::where('type', '=', $id)->get();
     }
 
     public function create()
