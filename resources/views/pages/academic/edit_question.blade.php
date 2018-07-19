@@ -31,7 +31,7 @@
 								<div class="col-md-1 checkbox-radios text-center">
 									<div class="form-check">
 										<label class="form-check-label">
-											<input class="form-check-input" type="radio" name="correct" value="1" checked="{{$question->correct == 1}}">
+											<input class="form-check-input" type="radio" name="correct" value="1" @if($question->correct == 1) checked @endif>
 											<span class="circle">
 												<span class="check"></span>
 											</span>
@@ -51,7 +51,7 @@
 								<div class="col-md-1 checkbox-radios text-center">
 									<div class="form-check">
 										<label class="form-check-label">
-											<input class="form-check-input" type="radio" name="correct" value="2" checked="{{$question->correct == 2}}">
+											<input class="form-check-input" type="radio" name="correct" value="2" @if($question->correct == 2) checked @endif>
 											<span class="circle">
 												<span class="check"></span>
 											</span>
@@ -71,7 +71,7 @@
 								<div class="col-md-1 checkbox-radios text-center">
 									<div class="form-check">
 										<label class="form-check-label">
-											<input class="form-check-input" type="radio" name="correct" value="3" checked="{{$question->correct == 3}}">
+											<input class="form-check-input" type="radio" name="correct" value="3" @if($question->correct == 3) checked @endif>
 											<span class="circle">
 												<span class="check"></span>
 											</span>
@@ -91,7 +91,7 @@
 								<div class="col-md-1 checkbox-radios text-center">
 									<div class="form-check">
 										<label class="form-check-label">
-											<input class="form-check-input" type="radio" name="correct" value="4" checked="{{$question->correct == 4}}">
+											<input class="form-check-input" type="radio" name="correct" value="4" @if($question->correct == 4) checked @endif>
 											<span class="circle">
 												<span class="check"></span>
 											</span>
@@ -111,7 +111,7 @@
 								<div class="col-md-1 checkbox-radios text-center">
 									<div class="form-check">
 										<label class="form-check-label">
-											<input class="form-check-input" type="radio" name="correct" value="5" checked="{{$question->correct == 5}}">
+											<input class="form-check-input" type="radio" name="correct" value="5" @if($question->correct == 5) checked @endif>
 											<span class="circle">
 												<span class="check"></span>
 											</span>
