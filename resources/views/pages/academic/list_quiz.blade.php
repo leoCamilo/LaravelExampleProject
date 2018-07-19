@@ -1,50 +1,160 @@
 @extends('components.app', [ 'sidemenu' => ['side22' => 'true'], 'navbar' => [ 'new_url' => '\study\create' ] ])
 @section('content')
 
+@php
+	$quantities = array(0, 0, 0, 0, 0, 0, 0, 0);
+	
+	foreach ($questions_count as $q)
+		$quantities[$q->type - 1] = $q->type_count;
+@endphp
+
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="card">
-				<div class="card-header card-header-warning card-header-icon">
-					<div class="card-icon">
-						<i class="material-icons">assignment</i>
+			<div class="row">
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="card card-stats">
+						<div class="card-header card-header-info card-header-icon">
+							<div class="card-icon">
+								<i class="material-icons">account_balance</i>
+							</div>
+							<p class="card-category">Perguntas</p>
+							<h3 class="card-title"> {{$quantities[0]}} </h3>
+						</div>
+						
+						<div class="card-footer">
+							<div class="stats">
+								<a href="/study/1">Direito Constitucional</a>
+							</div>
+						</div>
 					</div>
-
-					<h4 class="card-title">Questionários</h4>
 				</div>
 
-				<div class="card-body">
-					<div class="table-responsive">
-						<table class="table">
-							<thead>
-								<tr>
-									<th>Nome</th>
-									<th class="text-right">Quantidade de perguntas</th>
-									{{--  <th class="text-right">Porcentagem de Acerto</th>  --}}
-									<th class="text-right"></th>
-								</tr>
-							</thead>
-							
-							<tbody>
-								@foreach($quizzes as $q)
-									<tr>
-										<td>{{$q->title}}</td>
-										<td class="text-right">{{count($q->questions)}}</td>
-										{{--  <td class="text-right">{{$q->hits}}%</td>  --}}
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="card card-stats">
+						<div class="card-header card-header-success card-header-icon">
+							<div class="card-icon">
+								<i class="material-icons">work</i>
+							</div>
+							<p class="card-category">Perguntas</p>
+							<h3 class="card-title"> {{$quantities[1]}} </h3>
+						</div>
+						
+						<div class="card-footer">
+							<div class="stats">
+								<a href="/study/2">Direito do Trabalho</a>
+							</div>
+						</div>
+					</div>
+				</div>
 
-										<td class="td-actions text-right">
-											<!-- <button class="btn btn-just-icon btn-link btn-warning">
-												<i class="material-icons">edit</i>
-											</button> -->
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="card card-stats">
+						<div class="card-header card-header-warning card-header-icon">
+							<div class="card-icon">
+								<i class="material-icons">accessibility_new</i>
+							</div>
+							<p class="card-category">Perguntas</p>
+							<h3 class="card-title"> {{$quantities[2]}} </h3>
+						</div>
+						
+						<div class="card-footer">
+							<div class="stats">
+								<a href="/study/3">Direito Civil</a>
+							</div>
+						</div>
+					</div>
+				</div>
 
-											<button class="btn btn-just-icon btn-link btn-danger" onclick="delete_info({{$q->id}}, '/api/study/')">
-												<i class="material-icons">close</i>
-											</button>
-										</td>
-									</tr>
-								@endforeach
-							</tbody>
-						</table>
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="card card-stats">
+						<div class="card-header card-header-danger card-header-icon">
+							<div class="card-icon">
+								<i class="material-icons">lock</i>
+							</div>
+							<p class="card-category">Perguntas</p>
+							<h3 class="card-title"> {{$quantities[3]}} </h3>
+						</div>
+						
+						<div class="card-footer">
+							<div class="stats">
+								<a href="/study/4">Direito Penal</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="card card-stats">
+						<div class="card-header card-header-warning card-header-icon">
+							<div class="card-icon">
+								<i class="material-icons">shopping_cart</i>
+							</div>
+							<p class="card-category">Perguntas</p>
+							<h3 class="card-title"> {{$quantities[4]}} </h3>
+						</div>
+						
+						<div class="card-footer">
+							<div class="stats">
+								<a href="/study/5">Direito do Consumidor</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="card card-stats">
+						<div class="card-header card-header-info card-header-icon">
+							<div class="card-icon">
+								<i class="material-icons">business</i>
+							</div>
+							<p class="card-category">Perguntas</p>
+							<h3 class="card-title"> {{$quantities[5]}} </h3>
+						</div>
+						
+						<div class="card-footer">
+							<div class="stats">
+								<a href="/study/6">Direito Empresarial</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="card card-stats">
+						<div class="card-header card-header-rose card-header-icon">
+							<div class="card-icon">
+								<i class="material-icons">how_to_vote</i>
+							</div>
+							<p class="card-category">Perguntas</p>
+							<h3 class="card-title"> {{$quantities[6]}} </h3>
+						</div>
+						
+						<div class="card-footer">
+							<div class="stats">
+								<a href="/study/7">Direito Eleitoral</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="card card-stats">
+						<div class="card-header card-header-primary card-header-icon">
+							<div class="card-icon">
+								<i class="material-icons">computer</i>
+							</div>
+							<p class="card-category">Perguntas</p>
+							<h3 class="card-title"> {{$quantities[7]}} </h3>
+						</div>
+						
+						<div class="card-footer">
+							<div class="stats">
+								<a href="/study/8">Direito Administrativo</a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -4,8 +4,9 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-10 offset-md-1">
-			<form action="/study" method="POST">
-				{!! csrf_field() !!}
+			<form action="/study/{{$question->id}}" method="POST">
+				@csrf
+				@method('PUT')
 				
 				<div class="card">
 					<div class="card-header card-header-warning card-header-icon">
@@ -20,7 +21,7 @@
 								<div class="col-md-12">
 									<div class="form-group has-warning">
 										<div class="form-group">
-											<textarea name="question" class="form-control" rows="5" required="true" aria-required="true" placeholder="Digite a pergunta aqui!"></textarea>
+											<textarea name="question" class="form-control" rows="5" required="true" aria-required="true" placeholder="Digite a pergunta aqui!">{{$question->question}}</textarea>
 										</div>
 									</div>
 								</div>
@@ -30,7 +31,7 @@
 								<div class="col-md-1 checkbox-radios text-center">
 									<div class="form-check">
 										<label class="form-check-label">
-											<input class="form-check-input" type="radio" name="correct" value="1" checked="">
+											<input class="form-check-input" type="radio" name="correct" value="1" checked="{{$question->correct == 1}}">
 											<span class="circle">
 												<span class="check"></span>
 											</span>
@@ -41,7 +42,7 @@
 								<div class="col-md-11">
 									<div class="form-group has-warning">
 										<label class="bmd-label-floating">resposta</label>
-										<input name="answer_1" type="text" class="form-control" required="true" aria-required="true">
+										<input name="answer_1" type="text" class="form-control" required="true" aria-required="true" value="{{$question->answer_1}}">
 									</div>
 								</div>
 							</div>
@@ -50,7 +51,7 @@
 								<div class="col-md-1 checkbox-radios text-center">
 									<div class="form-check">
 										<label class="form-check-label">
-											<input class="form-check-input" type="radio" name="correct" value="2">
+											<input class="form-check-input" type="radio" name="correct" value="2" checked="{{$question->correct == 2}}">
 											<span class="circle">
 												<span class="check"></span>
 											</span>
@@ -61,7 +62,7 @@
 								<div class="col-md-11">
 									<div class="form-group has-warning">
 										<label class="bmd-label-floating">resposta</label>
-										<input name="answer_2" type="text" class="form-control" required="true" aria-required="true">
+										<input name="answer_2" type="text" class="form-control" required="true" aria-required="true" value="{{$question->answer_2}}">
 									</div>
 								</div>
 							</div>
@@ -70,7 +71,7 @@
 								<div class="col-md-1 checkbox-radios text-center">
 									<div class="form-check">
 										<label class="form-check-label">
-											<input class="form-check-input" type="radio" name="correct" value="3">
+											<input class="form-check-input" type="radio" name="correct" value="3" checked="{{$question->correct == 3}}">
 											<span class="circle">
 												<span class="check"></span>
 											</span>
@@ -81,7 +82,7 @@
 								<div class="col-md-11">
 									<div class="form-group has-warning">
 										<label class="bmd-label-floating">resposta</label>
-										<input name="answer_3" type="text" class="form-control" required="true" aria-required="true">
+										<input name="answer_3" type="text" class="form-control" required="true" aria-required="true" value="{{$question->answer_3}}">
 									</div>
 								</div>
 							</div>
@@ -90,7 +91,7 @@
 								<div class="col-md-1 checkbox-radios text-center">
 									<div class="form-check">
 										<label class="form-check-label">
-											<input class="form-check-input" type="radio" name="correct" value="4">
+											<input class="form-check-input" type="radio" name="correct" value="4" checked="{{$question->correct == 4}}">
 											<span class="circle">
 												<span class="check"></span>
 											</span>
@@ -101,7 +102,7 @@
 								<div class="col-md-11">
 									<div class="form-group has-warning">
 										<label class="bmd-label-floating">resposta</label>
-										<input name="answer_4" type="text" class="form-control" required="true" aria-required="true">
+										<input name="answer_4" type="text" class="form-control" required="true" aria-required="true" value="{{$question->answer_4}}">
 									</div>
 								</div>
 							</div>
@@ -110,7 +111,7 @@
 								<div class="col-md-1 checkbox-radios text-center">
 									<div class="form-check">
 										<label class="form-check-label">
-											<input class="form-check-input" type="radio" name="correct" value="5">
+											<input class="form-check-input" type="radio" name="correct" value="5" checked="{{$question->correct == 5}}">
 											<span class="circle">
 												<span class="check"></span>
 											</span>
@@ -121,7 +122,7 @@
 								<div class="col-md-11">
 									<div class="form-group has-warning">
 										<label class="bmd-label-floating">resposta</label>
-										<input name="answer_5" type="text" class="form-control" required="true" aria-required="true">
+										<input name="answer_5" type="text" class="form-control" required="true" aria-required="true" value="{{$question->answer_5}}">
 									</div>
 								</div>
 							</div>

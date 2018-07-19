@@ -27,8 +27,9 @@ Route::resource('users'             , 'Users\UserController');
 Route::resource('news'              , 'News\NewsController');
 Route::resource('chat'              , 'Chat\ChatController');
 
+Route::get('question/{id}', 'Academic\StudiesController@show_question');
+
 Auth::routes();
 
 Route::match(['get', 'post'], 'register', function() { return redirect('/'); });
-
 Route::post('login', "Auth\LoginController@login");

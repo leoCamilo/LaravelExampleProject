@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Academic;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Domain\Question;
-use App\Domain\Quiz;
 
 class StudiesController extends Controller
 {
@@ -14,8 +14,11 @@ class StudiesController extends Controller
     public function index()
     {
         return view('pages/academic/list_quiz', [
-            'name' => 'Estudo',
-            'quizzes' => Quiz::all()
+            'name' => 'Estudos',
+            'questions_count' => DB::table('questions')
+                ->select(DB::raw('type, count(type) as type_count'))
+                ->groupBy('type')
+                ->get()
         ]);
     }
 
@@ -37,32 +40,38 @@ class StudiesController extends Controller
 
     public function store(Request $request)
     {
-        $question_idx = 0;
-        $quiz = new Quiz;
-        $quiz->title = $request['title'];
-        $quiz->save();
-
-        while (isset($request["content_" . ++$question_idx])) {
-            $question_data = [
-                'correct'       => $request['correct_opt_'.$question_idx],
-                'question'      => $request['content_'.$question_idx],
-                'answer_1'      => $request['answer1_'.$question_idx],
-                'answer_2'      => $request['answer2_'.$question_idx],
-                'answer_3'      => $request['answer3_'.$question_idx],
-                'answer_4'      => $request['answer4_'.$question_idx],
-                'answer_5'      => $request['answer5_'.$question_idx],
-                'quiz_id'    => $quiz->id
-            ];
-
-            tap(new Question($question_data))->save();
-        }
-
+        $data = $request->validate ([
+            'correct'   => 'required',
+            'question'  => 'required',
+            'answer_1'  => 'required',
+            'answer_2'  => 'required',
+            'answer_3'  => 'required',
+            'answer_4'  => 'required',
+            'answer_5'  => 'required',
+            'type'      => 'required',
+        ]);
+        
+        tap(new Question($data))->save();
+        
         return redirect('study');
     }
 
     public function show($id)
     {
-        //
+        return view('pages/academic/list_questions',
+        [
+            'name' => 'Estudo',
+            'questions' => Question::where('type', '=', $id)->get()
+        ]);
+    }
+
+    public function show_question($id)
+    {
+        return view('pages/academic/edit_question', 
+        [
+            'name' => 'Estudo',
+            'question' => Question::find($id)
+        ]);
     }
 
     public function edit($id)
@@ -72,15 +81,35 @@ class StudiesController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->validate ([
+            'correct'   => 'required',
+            'question'  => 'required',
+            'answer_1'  => 'required',
+            'answer_2'  => 'required',
+            'answer_3'  => 'required',
+            'answer_4'  => 'required',
+            'answer_5'  => 'required',
+            'type'      => 'required',
+        ]);
+
+        $question = Question::find($id);
+        $question->type = $data['type'];
+        $question->correct = $data['correct'];
+        $question->question = $data['question'];
+        $question->answer_1 = $data['answer_1'];
+        $question->answer_2 = $data['answer_2'];
+        $question->answer_3 = $data['answer_3'];
+        $question->answer_4 = $data['answer_4'];
+        $question->answer_5 = $data['answer_5'];
+        $question->save();
+
+        return redirect('study/'.$data['type']);
     }
 
     public function destroy($id)
     {
-        $quiz = Quiz::find($id);
-        $quiz->delete();
-
-        // TODO: delete questions
+        $question = Question::find($id);
+        $question->delete();
         
         return response()->json([ 'success' => 'true' ]);
     }
