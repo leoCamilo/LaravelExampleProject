@@ -31,7 +31,7 @@ class RoleController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->validate([ 'name' => 'required|max:255' ]);
+        $data = $request->validate([ 'name' => 'required|max:255', 'content' => 'required' ]);
         tap(new Role($data))->save();
         return redirect('roles');
     }

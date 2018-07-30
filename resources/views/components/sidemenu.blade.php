@@ -62,7 +62,7 @@
                 </div>
             </li>
             
-            <?php $officeNotColapsed = isset($side31) || isset($side32) || isset($side33) || isset($side34); ?>
+            <?php $officeNotColapsed = isset($side31) || isset($side32) || isset($side33) || isset($side34) || isset($side35); ?>
 
             <li class="nav-item">
                 <a class="nav-link @if(!$officeNotColapsed) collapsed @endif" data-toggle="collapse" href="#officeMenu" aria-expanded="@if ($officeNotColapsed) true @else false @endif">
@@ -97,6 +97,13 @@
                             <a class="nav-link" href="/awards">
                             <i class="material-icons">stars</i>
                             <span class="sidebar-normal"> Prêmios </span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item @isset($side35) active @endisset">
+                            <a class="nav-link" href="/practical">
+                            <i class="material-icons">book</i>
+                            <span class="sidebar-normal"> Guias Praticos </span>
                             </a>
                         </li>
                     </ul>
@@ -141,6 +148,13 @@
                 <a class="nav-link" href="/users">
                     <i class="material-icons">supervisor_account</i>
                     <p>Usuários</p>
+                </a>
+            </li>
+
+            <li class="nav-item @isset($side8) active @endisset">
+                <a class="nav-link" href="/change_pass">
+                    <i class="material-icons">lock</i>
+                    <p>Trocar senha</p>
                 </a>
             </li>
 

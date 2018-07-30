@@ -23,7 +23,18 @@
 									<input id="name" name="name" type="text" class="form-control" required="true" aria-required="true">
 								</div>
 							</div>
+
+							<div class="col-md-12">
+								<div class="form-group has-warning">
+									<label>Conteúdo</label>
+									
+									<div class="form-group">
+										<textarea id="content" name="content" class="form-control" rows="7" required aria-required="true"></textarea>
+									</div>
+								</div>
+							</div>
 						</div>
+						
 
 						<button type="submit" onclick="show_save_loading()" class="btn btn-warning pull-right">Adicionar</button>
 						<div class="clearfix"></div>

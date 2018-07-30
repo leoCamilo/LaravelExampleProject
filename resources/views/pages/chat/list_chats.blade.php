@@ -20,9 +20,17 @@
 
 								@foreach($messages as $m)
 								<tr>
-									<td><a href="/chat/{{$m->id}}">
+									<td><a href="/chat/{{$m->from}}">
 										{{$m->name}}
 									</a></td>
+
+									<td class="text-right">
+										@if($m->unreaded_msgs != 0)
+											<span class="badge badge-pill badge-danger">
+												{{$m->unreaded_msgs}} Mensagens não lidas
+											</span>
+										@endif
+									</td>
 								</tr>
 								@endforeach
 

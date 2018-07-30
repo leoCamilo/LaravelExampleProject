@@ -1,3 +1,13 @@
+@php
+
+use Illuminate\Support\Facades\DB;
+
+$unread = DB::table('message_centers')
+    ->select('message_centers.unreaded_msgs')
+	->sum('message_centers.unreaded_msgs');
+
+@endphp
+
 <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top">
 	<div class="container-fluid">
 		<div class="navbar-wrapper">
@@ -18,6 +28,8 @@
 			<span class="navbar-toggler-icon icon-bar"></span>
 			<span class="navbar-toggler-icon icon-bar"></span>
 		</button>
+
+		
 		
 		<div class="collapse navbar-collapse justify-content-end" id="navigation">
 			<!-- <form class="navbar-form">
@@ -30,42 +42,34 @@
 				</div>
 			</form> -->
 			
-			<!-- <ul class="navbar-nav">
-				<li class="nav-item">
+			<ul class="navbar-nav">
+				<!-- <li class="nav-item">
 					<a class="nav-link" href="#pablo">
 						<i class="material-icons">dashboard</i>
 						<p>
 							<span class="d-lg-none d-md-block">Stats</span>
 						</p>
 					</a>
-				</li>
+				</li> -->
 				
-				<li class="nav-item dropdown">
-					<a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<i class="material-icons">notifications</i>
-						<span class="notification">5</span>
-						<p>
-							<span class="d-lg-none d-md-block">Some Actions</span>
-						</p>
-					</a>
-					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-						<a class="dropdown-item" href="#">Mike John responded to your email</a>
-						<a class="dropdown-item" href="#">You have 5 new tasks</a>
-						<a class="dropdown-item" href="#">You're now friend with Andrew</a>
-						<a class="dropdown-item" href="#">Another Notification</a>
-						<a class="dropdown-item" href="#">Another One</a>
-					</div>
-				</li>
+				@if($unread != 0)
+					<li class="nav-item dropdown">
+						<a class="nav-link" href="/chat">
+							<i class="material-icons">chat</i>
+							<span class="notification">{{$unread}}</span>
+						</a>
+					</li>	
+				@endif
 				
-				<li class="nav-item">
+				<!-- <li class="nav-item">
 					<a class="nav-link" href="#pablo">
 						<i class="material-icons">person</i>
 						<p>
 							<span class="d-lg-none d-md-block">Account</span>
 						</p>
 					</a>
-				</li>
-			</ul> -->
+				</li> -->
+			</ul> 
 		</div>
 	</div>
 </nav>

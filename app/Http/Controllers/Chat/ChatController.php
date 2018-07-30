@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Chat;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Domain\MessageCenter;
 use App\Domain\Message;
 
 class ChatController extends Controller
@@ -17,9 +18,10 @@ class ChatController extends Controller
         [
             'name' => 'Chat',
             'messages' => DB::table('messages')
-                ->select('users.*', 'messages.from')
+                ->select('users.name', 'messages.from', 'message_centers.unreaded_msgs')
                 ->join('users', 'users.id', '=', 'messages.from')
-                ->groupBy('from')
+                ->join('message_centers', 'messages.from', '=', 'message_centers.user_id')
+                ->groupBy('from', 'message_centers.unreaded_msgs')
                 ->having('from', '>', 1)
                 ->get()
         ]);
@@ -48,6 +50,17 @@ class ChatController extends Controller
         ]);
 
         tap(new Message($data))->save();
+
+        if ($data['from'] != 1){
+            $msgCenter = MessageCenter::where('user_id', '=', $data['from'])->get()[0];
+            $msgCenter->unreaded_msgs++;
+            $msgCenter->save();
+        } else {
+            $msgCenter = MessageCenter::where('user_id', '=', $data['to'])->get()[0];
+            $msgCenter->unreaded_msgs = 0;
+            $msgCenter->save();
+        }
+
         return "sended";
     }
 

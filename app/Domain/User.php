@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Domain\MessageCenter;
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -46,6 +47,8 @@ class User extends Authenticatable implements JWTSubject
                     'email' => $data['email'],
                     'password' => Hash::make($data['password']),    // SHOULD BE ADDED ON CLIENT
                 ]);
+
+                MessageCenter::create([ 'user_id' => $payload['data']->id ]);
             }
         }
         catch (\Illuminate\Database\QueryException $e)

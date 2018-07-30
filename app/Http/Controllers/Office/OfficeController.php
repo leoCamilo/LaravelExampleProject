@@ -14,7 +14,7 @@ class OfficeController extends Controller
     {
         return view('pages/office/edit_office', 
         [
-            'name' => 'Escritório',
+            'name' => 'Advocacia Especializada',
             'office' => Office::find(1)
         ]);
     }

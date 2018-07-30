@@ -13,14 +13,14 @@
 				</div>
 
 				<div class="card-body">
-					<form action="/supportcontent" method="POST" enctype='multipart/form-data'>
+					<form action="/practical" method="POST" enctype='multipart/form-data'>
 						@csrf
 
 						<br>
 						<div class="row">
 							<div class="col-md-12">
 								<div class="form-group has-warning">
-									<label class="bmd-label-floating">Titulo do material</label>
+									<label class="bmd-label-floating">Titulo do guia</label>
 									<input name="title" type="text" class="form-control" required="true" aria-required="true">
 								</div>
 							</div>
@@ -29,25 +29,13 @@
 						<br>
 						<div class="row">
 							<div class="col-md-2">
-								<div class="form-check">
-									<label class="form-check-label">
-										Premium
-										<input name="premium" class="form-check-input" type="checkbox" value="1">
-										<span class="form-check-sign">
-											<span class="check"></span>
-										</span>
-									</label>
-								</div>
-							</div>
-
-							<div class="col-md-2">
 								<span class="btn btn-warning btn-file btn-link">
                                     <span>Adicionar Anexo</span>
 									<input type="file" name="attachment" accept="application/pdf" data-max-size="1374575">
                                 </span>
 							</div>
 
-							<div class="col-md-8">
+							<div class="col-md-10">
 								<button type="submit" onclick="show_save_loading()" class="btn btn-warning pull-right">Adicionar</button>
 							</div>
 						</div>
