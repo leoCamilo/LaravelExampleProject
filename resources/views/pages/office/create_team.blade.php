@@ -7,21 +7,20 @@
 			<div class="card">
 				<div class="card-header card-header-warning card-header-icon">
 					<div class="card-icon">
-						<i class="material-icons">edit</i>
+						<i class="material-icons">add</i>
 					</div>
-					<h4 class="card-title">Editar Equipe</h4>
+					<h4 class="card-title">Adicionar Equipe</h4>
 				</div>
 
 				<div class="card-body">
-					<form action="/team/{{$team->id}}" method="POST">
+					<form action="/team" method="POST">
 						@csrf
-						@method('PUT')
 
 						<div class="row">
 							<div class="col-md-12">
 								<div class="form-group has-warning">
 									<label class="bmd-label-floating">Nome da Equipe</label>
-									<input name="title" type="text" class="form-control" required="true" aria-required="true" value="{{$team->title}}">
+									<input name="title" type="text" class="form-control" required="true" aria-required="true">
 								</div>
 							</div>
 
@@ -30,14 +29,14 @@
 									<label>Descrição da Equipe</label>
 									
 									<div class="form-group">
-										<textarea name="content" class="form-control" rows="7" required aria-required="true">{{$team->content}}</textarea>
+										<textarea name="content" class="form-control" rows="7" required aria-required="true"></textarea>
 									</div>
 								</div>
 							</div>
 						</div>
 						
 
-						<button type="submit" onclick="show_save_loading()" class="btn btn-warning pull-right">Alterar</button>
+						<button type="submit" onclick="show_save_loading()" class="btn btn-warning pull-right">Adicionar</button>
 						<div class="clearfix"></div>
 					</form>
 				</div>

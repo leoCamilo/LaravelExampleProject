@@ -20,7 +20,7 @@
 							<div class="col-md-12">
 								<div class="form-group has-warning">
 									<label class="bmd-label-floating">Nome da Atuação</label>
-									<input id="name" name="name" type="text" class="form-control" required="true" aria-required="true">
+									<input name="name" type="text" class="form-control" required="true" aria-required="true">
 								</div>
 							</div>
 
@@ -29,7 +29,7 @@
 									<label>Conteúdo</label>
 									
 									<div class="form-group">
-										<textarea id="content" name="content" class="form-control" rows="7" required aria-required="true"></textarea>
+										<textarea name="content" class="form-control" rows="7" required aria-required="true"></textarea>
 									</div>
 								</div>
 							</div>

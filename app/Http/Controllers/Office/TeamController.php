@@ -12,10 +12,10 @@ class TeamController extends Controller
 
     public function index()
     {
-        return view('pages/office/edit_team', 
+        return view('pages/office/list_team', 
         [
             'name' => 'Equipe',
-            'team' => Team::find(1)
+            'teams' => Team::all()
         ]);
     }
 
@@ -24,22 +24,34 @@ class TeamController extends Controller
         return response()->json(Team::find(1));
     }
 
-    public function create() { }
+    public function create()
+    {
+        return view('pages/office/create_team', [ 'name' => 'Equipe' ]);
+    }
 
-    public function store(Request $request) { }
+    public function store(Request $request)
+    {
+        $data = $request->validate([ 'title' => 'required', 'content' => 'required' ]);
+        tap(new Team($data))->save();
+        return redirect('team');
+    }
 
-    public function show($id) { }
+    public function show($id)
+    {
+        return view('pages/office/edit_team', [ 'name' => 'Equipe', 'team' => Team::find($id) ]);
+    }
 
     public function edit($id) { }
 
     public function update(Request $request, $id)
     {
-        $data = $request->validate([ 'content' => 'required' ]);
-
+        $data = $request->validate([ 'title' => 'required', 'content' => 'required' ]);
         $team = Team::find($id);
+
+        $team->title = $data['title'];
         $team->content = $data['content'];
         $team->save();
-
+        
         return redirect('team');
     }
 

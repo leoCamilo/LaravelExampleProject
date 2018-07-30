@@ -1,4 +1,4 @@
-@extends('components.app', [ 'sidemenu' => ['side33' => 'true'], 'navbar' => [ 'new_url' => '\roles\create' ] ])
+@extends('components.app', [ 'sidemenu' => ['side32' => 'true'], 'navbar' => [ 'new_url' => '\team\create' ]])
 @section('content')
 
 <div class="container-fluid">
@@ -7,27 +7,27 @@
 			<div class="card">
 				<div class="card-header card-header-icon card-header-warning">
 					<div class="card-icon">
-						<i class="material-icons">assignment</i>
+						<i class="material-icons">edit</i>
 					</div>
 					
-					<h4 class="card-title ">Lista de Atuações</h4>
+					<h4 class="card-title ">Equipes</h4>
 				</div>
 
 				<div class="card-body">
 					<div class="table-responsive">
 						<table class="table">
 							<tbody>
-								@foreach($roles as $r)
+								@foreach($teams as $t)
 								
 								<tr>
 									<td>
-										<a href="/roles/{{$r->id}}">
-											{{$r->name}}
+										<a href="/team/{{$t->id}}">
+											{{$t->title}}
 										</a>
 									</td>
-									
+
 									<td class="td-actions text-right">
-										<button class="btn btn-just-icon btn-link btn-danger" onclick="delete_info({{$r->id}}, '/api/roles/')">
+										<button class="btn btn-just-icon btn-link btn-danger" onclick="delete_info({{$t->id}}, '/api/teams/')">
 											<i class="material-icons">close</i>
 										</button>
 									</td>

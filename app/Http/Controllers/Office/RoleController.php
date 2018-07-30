@@ -38,7 +38,7 @@ class RoleController extends Controller
 
     public function show($id)
     {
-        //
+        return view('pages/office/edit_role', [ 'name' => 'Atuação', 'role' => Role::find($id) ]);
     }
 
     public function edit($id)
@@ -48,7 +48,14 @@ class RoleController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->validate([ 'name' => 'required', 'content' => 'required' ]);
+        $role = Role::find($id);
+
+        $role->name = $data['name'];
+        $role->content = $data['content'];
+        $role->save();
+        
+        return redirect('roles');
     }
 
     public function destroy($id)

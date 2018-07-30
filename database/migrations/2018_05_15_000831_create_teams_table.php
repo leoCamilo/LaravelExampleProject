@@ -15,13 +15,14 @@ class CreateTeamsTable extends Migration
     {
         Schema::create('teams', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('title');
             $table->longText('content');
             $table->timestamps();
         });
 
-        DB::table('teams')->insert(
-            array( 'content' => 'Digite aqui sobre sua equipe!' )
-        );
+        // DB::table('teams')->insert(
+        //     array( 'content' => 'Digite aqui sobre sua equipe!' )
+        // );
     }
 
     /**
