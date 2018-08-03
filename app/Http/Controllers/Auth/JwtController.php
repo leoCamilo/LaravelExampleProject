@@ -11,7 +11,7 @@ class JwtController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login', 'forget']]);
+        $this->middleware('auth:api', ['except' => ['login', 'forget', 'update_data']]);
     }
 
     public function login()
@@ -58,6 +58,13 @@ class JwtController extends Controller
     public function forget()
     {
         User::reset_pass(request(['email']));
+        return response()->json(['error' => 'ok'], 200);
+    }
+
+    public function update_data()
+    {
+        $data = request(['id', 'email', 'new_pass']);
+        User::update_data($data['id'], $data['email'], $data['new_pass']);
         return response()->json(['error' => 'ok'], 200);
     }
 }

@@ -84,8 +84,16 @@ class User extends Authenticatable implements JWTSubject
         $pass = uniqid();
         $user->password = Hash::make($pass);
 
-        // send email with new pass
+        // SEND EMAIL WITH NEW TEMPORARY PASS
 
+        $user->save();
+    }
+
+    public static function update_data($id, $email, $new_pass)
+    {
+        $user = User::find($id);
+        $user->password = Hash::make($new_pass);
+        $user->email = $email;
         $user->save();
     }
 }
