@@ -30,6 +30,7 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth' ], function ($router)
     Route::post('refresh',      'Auth\JwtController@refresh');
     Route::post('me',           'Auth\JwtController@me');
     Route::post('changePass',   'Auth\JwtController@change_pass');
+    Route::post('forget',       'Auth\JwtController@forget');
 });
 
 // TODO: see needed of cors middleware here

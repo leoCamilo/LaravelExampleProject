@@ -77,4 +77,15 @@ class User extends Authenticatable implements JWTSubject
         
         return response()->json(['error' => 1], 401);
     }
+
+    public static function reset_pass($email)
+    {
+        $user = User::where('email', $email)->first();
+        $pass = uniqid();
+        $user->password = Hash::make($pass);
+
+        // send email with new pass
+
+        $user->save();
+    }
 }

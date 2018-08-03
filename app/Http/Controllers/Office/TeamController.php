@@ -21,7 +21,7 @@ class TeamController extends Controller
 
     public function get_team_description()
     {
-        return response()->json(Team::find(1));
+        return response()->json(Team::all());
     }
 
     public function create()

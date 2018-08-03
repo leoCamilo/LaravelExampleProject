@@ -5,13 +5,13 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
-use App\User;
+use App\Domain\User;
 
 class JwtController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login']]);
+        $this->middleware('auth:api', ['except' => ['login', 'forget']]);
     }
 
     public function login()
@@ -53,5 +53,11 @@ class JwtController extends Controller
             return User::update_pass(auth()->user(), ['old' => $data['old_pass'], 'new' => $data['new_pass']]);
         
         return response()->json(['error' => 'wrong operation'], 401);
+    }
+
+    public function forget()
+    {
+        User::reset_pass(request(['email']));
+        return response()->json(['error' => 'ok'], 200);
     }
 }
