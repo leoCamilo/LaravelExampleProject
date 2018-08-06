@@ -14,7 +14,7 @@
                 </a>
             </li>
 
-            <?php $academicNotColapsed = isset($side21) || isset($side22) || isset($side23) || isset($side24) || isset($side25); ?>
+            <?php $academicNotColapsed = isset($side21) || isset($side22) || isset($side23) || isset($side24) || isset($side25) || isset($side26); ?>
 
             <li class="nav-item">
                 <a class="nav-link @if(!$academicNotColapsed) collapsed @endif" data-toggle="collapse" href="#schoolMenu" aria-expanded="@if ($academicNotColapsed) true @else false @endif">
@@ -31,10 +31,24 @@
                             </a>
                         </li>
 
+                        <li class="nav-item @isset($side24) active @endisset">
+                            <a class="nav-link" href="/audiolessons">
+                                <i class="material-icons">audiotrack</i>
+                                <span class="sidebar-normal"> Audio Aula </span>
+                            </a>
+                        </li>
+
                         <li class="nav-item @isset($side22) active @endisset">
                             <a class="nav-link" href="/study">
                                 <i class="material-icons">book</i>
                                 <span class="sidebar-normal"> Estudos </span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item @isset($side26) active @endisset">
+                            <a class="nav-link" href="/category">
+                                <i class="material-icons">category</i>
+                                <span class="sidebar-normal"> Categorias de Estudo </span>
                             </a>
                         </li>
 

@@ -46,6 +46,7 @@ Route::get('academic/get_projects/{id}' , "Academic\ProjectsController@get_by_ty
 Route::get('academic/study/{id}'        , "Academic\StudiesController@get_all");
 Route::get('academic/content'           , "Academic\SupportContentController@get_all");
 Route::get('videos/all'                 , "Academic\VideoLessonsController@getAllVideos");
+Route::get('audios/all'                 , "Academic\AudioLessonController@getAllAudios");
 Route::get('news/{page}'                , "News\NewsController@getAllNews");
 Route::get('office/get_info'            , "Office\OfficeController@get_office_description");
 Route::get('office/get_team'            , "Office\TeamController@get_team_description");
@@ -70,5 +71,7 @@ Route::delete('legaladvice/{id}'    , "Clients\LegalAdviceController@destroy");
 Route::delete('consultations/{id}'  , "Clients\ConsultationController@destroy");
 Route::delete('supportcontent/{id}' , "Academic\SupportContentController@destroy");
 Route::delete('videolessons/{id}'   , "Academic\VideoLessonsController@destroy");
+Route::delete('audiolessons/{id}'   , "Academic\AudioLessonController@destroy");
 Route::delete('projects/{id}'       , "Academic\ProjectsController@destroy");
 Route::delete('study/{id}'          , "Academic\StudiesController@destroy");
+Route::delete('category/{id}'       , "Academic\StudyCategoryController@destroy");
