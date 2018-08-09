@@ -3,6 +3,7 @@
 /public/storage
 /public/img/posts
 /public/img/awards
+/public/img/study_category
 /public/files
 /storage/*.key
 /vendor

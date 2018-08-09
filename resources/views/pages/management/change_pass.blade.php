@@ -1,4 +1,4 @@
-@extends('components.app', [ 'sidemenu' => ['side8' => 'true'], 'navbar' => []])
+@extends('components.app', [ 'sidemenu' => ['side71' => 'true'], 'navbar' => []])
 @section('content')
 
 <div class="container-fluid">

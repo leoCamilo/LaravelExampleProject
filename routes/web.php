@@ -29,6 +29,7 @@ Route::resource('team'              , 'Office\TeamController');
 Route::resource('users'             , 'Users\UserController');
 Route::resource('news'              , 'News\NewsController');
 Route::resource('chat'              , 'Chat\ChatController');
+Route::resource('plan'              , 'Admin\PlanController');
 
 Route::get('change_pass', 'Admin\AdminController@show_change_pass');
 Route::get('question/{id}', 'Academic\StudiesController@show_question');

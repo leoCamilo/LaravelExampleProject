@@ -165,11 +165,31 @@
                 </a>
             </li>
 
-            <li class="nav-item @isset($side8) active @endisset">
-                <a class="nav-link" href="/change_pass">
-                    <i class="material-icons">lock</i>
-                    <p>Trocar senha</p>
+            <?php $configNotColapsed = isset($side71) || isset($side72); ?>
+
+            <li class="nav-item">
+                <a class="nav-link @if(!$configNotColapsed) collapsed @endif" data-toggle="collapse" href="#configMenu" aria-expanded="@if ($configNotColapsed) true @else false @endif">
+                    <i class="material-icons">settings</i>
+                    <p> Configuração <b class="caret"></b></p>
                 </a>
+
+                <div class="collapse @if ($configNotColapsed) show @endif" id="configMenu" style="">
+                    <ul class="nav">
+                        <li class="nav-item @isset($side71) active @endisset">
+                            <a class="nav-link" href="/change_pass">
+                            <i class="material-icons">lock</i>
+                            <span class="sidebar-normal"> Trocar senha </span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item @isset($side72) active @endisset">
+                            <a class="nav-link" href="/plan">
+                            <i class="material-icons">monetization_on</i>
+                            <span class="sidebar-normal"> Alterar Plano </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
 
             <li class="nav-item @isset($side7) active @endisset">
