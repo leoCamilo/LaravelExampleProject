@@ -12,7 +12,7 @@ class AudioLessonController extends Controller
 
     public function getAllAudios()
     {
-        return response()->json(AudioLesson::all());
+        return AudioLesson::all();
     }
 
     /**

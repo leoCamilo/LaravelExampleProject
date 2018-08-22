@@ -131,15 +131,10 @@
 					<div class="card-footer">
 						<div class="col-md-6">
 							<div class="btn-group bootstrap-select">
-								<select name="type" class="selectpicker" data-size="10" data-style="btn btn-warning btn-round" title="Direito" tabindex="-98">
-									<option value="1" selected>Direito Constitucional</option>
-									<option value="2">Direito do Trabalho</option>
-									<option value="3">Direito Civil</option>
-									<option value="4">Direito Penal</option>
-									<option value="5">Direito do Consumidor</option>
-									<option value="6">Direito Empresarial</option>
-									<option value="7">Direito Eleitoral</option>
-									<option value="8">Direito Administrativo</option>
+								<select name="type" class="selectpicker" data-size="10" data-style="btn btn-warning btn-round" title="Categoria" tabindex="-98" required>
+									@foreach ($categories as $c)
+									<option value="{{$c->id}}">{{$c->title}}</option>
+									@endforeach categories
 								</select>
 							</div>	
 						</div>

@@ -6,15 +6,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Domain\Question;
+use App\Domain\StudyCategory;
 
 class StudiesController extends Controller
 {
-    public function __construct() { $this->middleware('auth')->except('get_all', 'destroy'); }
+    public function __construct() { $this->middleware('auth')->except('get_all', 'get_categories', 'destroy'); }
     
     public function index()
     {
         return view('pages/academic/list_quiz', [
             'name' => 'Estudos',
+            'categories' => StudyCategory::all(),
             'questions_count' => DB::table('questions')
                 ->select(DB::raw('type, count(type) as type_count'))
                 ->groupBy('type')
@@ -27,9 +29,18 @@ class StudiesController extends Controller
         return Question::where('type', '=', $id)->get();
     }
 
+    public function get_categories()
+    {
+        return StudyCategory::all();
+    }
+
     public function create()
     {
-        return view('pages/academic/create_study', [ 'name' => 'Estudo' ]);
+        return view('pages/academic/create_study', 
+        [ 
+            'name' => 'Estudo',
+            'categories' => StudyCategory::all()
+        ]);
     }
 
     public function store(Request $request)
