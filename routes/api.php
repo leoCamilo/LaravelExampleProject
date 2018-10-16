@@ -53,6 +53,7 @@ Route::get('office/get_info'            , "Office\OfficeController@get_office_de
 Route::get('office/get_team'            , "Office\TeamController@get_team_description");
 Route::get('office/get_role'            , "Office\RoleController@get_all");
 Route::get('office/get_awards'          , "Office\AwardController@get_all");
+Route::get('office/get_guides'          , "Office\PracticalGuideController@get_all");
 Route::get('client/get_docs/{id}'       , "Clients\LegalAdviceController@get_data_by_id");
 Route::get('client/get_links'           , "Clients\ConsultationController@get_all");
 Route::get('chat/get_by_user/{id}'      , "Chat\ChatController@get_user_msg");

@@ -12,11 +12,16 @@ class PracticalGuideController extends Controller
 
     public function index()
     {
-        return view('pages/office/list_practical_guide', 
+        return view('pages/office/list_practical_guide',
         [
             'name' => 'Guias Práticos',
             'practical_guides' => PracticalGuide::all()
         ]);
+    }
+
+	public function get_all()
+    {
+        return response()->json(PracticalGuide::all());
     }
 
     public function create()
