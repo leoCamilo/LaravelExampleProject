@@ -51,13 +51,13 @@ class JwtController extends Controller
 
         if (isset($data['old_pass']) && isset($data['new_pass']))
             return User::update_pass(auth()->user(), ['old' => $data['old_pass'], 'new' => $data['new_pass']]);
-        
+
         return response()->json(['error' => 'wrong operation'], 401);
     }
 
-    public function forget()
+    public function forget(Request $request)
     {
-        User::reset_pass(request(['email']));
+        User::reset_pass($request->email);
         return response()->json(['error' => 'ok'], 200);
     }
 

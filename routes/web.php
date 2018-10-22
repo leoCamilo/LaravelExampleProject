@@ -31,11 +31,13 @@ Route::resource('news'              , 'News\NewsController');
 Route::resource('chat'              , 'Chat\ChatController');
 Route::resource('plan'              , 'Admin\PlanController');
 
-Route::get('change_pass', 'Admin\AdminController@show_change_pass');
+Route::get('change_pass', 'Admin\AdminController@show_change_pass');		// ADM pass
 Route::get('question/{id}', 'Academic\StudiesController@show_question');
+Route::get('auth/forget/{email}/{token}', "Admin\AdminController@show_forget_page");
 
 Auth::routes();
 
 Route::match(['get', 'post'], 'register', function() { return redirect('/'); });
 Route::post('login', "Auth\LoginController@login");
 Route::post('change_pass', "Admin\AdminController@change_pass");
+Route::post('change_user_pass', "Admin\AdminController@change_user_pass");

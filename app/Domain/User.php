@@ -33,7 +33,7 @@ class User extends Authenticatable implements JWTSubject
                 'email' => 'required|string|email|max:255|unique:users',
                 'password' => 'required|string|min:6'
             ]);
-    
+
             if ($validator->fails())
             {
                 $payload['validation_error'] = $validator->errors();
@@ -74,16 +74,16 @@ class User extends Authenticatable implements JWTSubject
 
             return response()->json(['error' => 0], 200);
         }
-        
+
         return response()->json(['error' => 1], 401);
     }
 
     public static function reset_pass($email)
     {
         $user = User::where('email', $email)->first();
-        $pass = uniqid();
-        $user->password = Hash::make($pass);
+        $user->remember_token = Hash::make(uniqid());
 
+		// \Log::info("/auth/forget/$email/$user->remember_token");
         // SEND EMAIL WITH NEW TEMPORARY PASS
 
         $user->save();
