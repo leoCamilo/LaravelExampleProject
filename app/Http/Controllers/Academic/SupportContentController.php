@@ -31,7 +31,7 @@ class SupportContentController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->validate([ 'title' => 'required|max:300', 'premium' => 'sometimes' ]);
+        $data = $request->validate([ 'title' => 'required|max:300', 'type' => 'required', 'premium' => 'sometimes' ]);
 
         if ($request->hasFile('attachment'))
         {

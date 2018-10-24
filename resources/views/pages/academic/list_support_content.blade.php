@@ -19,6 +19,7 @@
 							<thead>
 								<tr>
 									<th>Título</th>
+									<th class="text-right">Tipo</th>
 									<th class="text-right">Premium</th>
 									<th class="text-right"></th>
 								</tr>
@@ -29,10 +30,16 @@
 								@foreach($support_content as $sc)
 								<tr >
 									<td> {{$sc->title}} </td>
+
+									<td class="td-actions text-right">
+										@if($sc->type == 1) PDF @else Apresentação @endif
+									</td>
 									
 									<td class="td-actions text-right">
 										@if($sc->premium)
 										<i class="material-icons">check</i>
+										@else
+										<i class="material-icons">close</i>
 										@endif
 									</td>
 

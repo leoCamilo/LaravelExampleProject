@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class SupportContent extends Model
 {
-    protected $fillable = [ 'title', 'link', 'premium' ];
+    protected $fillable = [ 'title', 'link', 'type', 'premium' ];
     protected $table = "support_contents";
 }

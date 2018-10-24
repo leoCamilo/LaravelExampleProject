@@ -18,10 +18,19 @@
 
 						<br>
 						<div class="row">
-							<div class="col-md-12">
+							<div class="col-md-8">
 								<div class="form-group has-warning">
 									<label class="bmd-label-floating">Titulo do material</label>
 									<input name="title" type="text" class="form-control" required="true" aria-required="true">
+								</div>
+							</div>
+
+							<div class="col-md-4">
+								<div class="btn-group bootstrap-select">
+									<select name="type" class="selectpicker" data-size="5" data-style="btn btn-warning btn-round" title="Tipo" tabindex="-98">
+										<option value="1" selected>PDF</option>
+										<option value="2">Apresentação</option>
+									</select>
 								</div>
 							</div>
 						</div>
@@ -43,7 +52,7 @@
 							<div class="col-md-2">
 								<span class="btn btn-warning btn-file btn-link">
                                     <span>Adicionar Anexo</span>
-									<input type="file" name="attachment" accept="application/pdf" data-max-size="1374575">
+									<input type="file" name="attachment" accept="application/pdf,.pptx" data-max-size="1374575">
                                 </span>
 							</div>
 
