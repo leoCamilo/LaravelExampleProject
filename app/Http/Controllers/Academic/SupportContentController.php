@@ -8,20 +8,20 @@ use App\Domain\SupportContent;
 
 class SupportContentController extends Controller
 {
-    public function __construct() { $this->middleware('auth')->except('destroy', 'get_all'); }
-    
+    public function __construct() { $this->middleware('auth')->except('destroy', 'get_by_type'); }
+
     public function index()
     {
-        return view('pages/academic/list_support_content', 
+        return view('pages/academic/list_support_content',
         [
             'name' => 'Material de apoio',
             'support_content' => SupportContent::all()
         ]);
     }
 
-    public function get_all()
+    public function get_by_type($type)
     {
-        return response()->json(SupportContent::all());
+        return response()->json(SupportContent::where('type', $type)->get());
     }
 
     public function create()
