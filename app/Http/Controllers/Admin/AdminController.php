@@ -52,7 +52,7 @@ class AdminController extends Controller
             'newPass2' => 'required'
         ]);
 
-        if (Auth::attempt(['email' => 'AndreGomesAdmin', 'password' => $data['oldPass']]) && $data['newPass'] == $data['newPass2']) {
+        if (Auth::attempt(['email' => 'admin', 'password' => $data['oldPass']]) && $data['newPass'] == $data['newPass2']) {
             $user = User::find(1);
             $user->password = Hash::make($data['newPass']);
             $user->save();

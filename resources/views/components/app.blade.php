@@ -14,7 +14,7 @@
 		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
 		<link rel="stylesheet" href="{{ asset('css/material-dashboard.css') }}">
-		<link rel="stylesheet" href="{{ asset('css/andregomes.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/app_example.css') }}">
 	</head>
 
 	<body class="">
@@ -42,7 +42,7 @@
 	<script type="text/javascript" src="{{ asset('js/plugins/sweetalert2.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/plugins/jquery.select-bootstrap.js') }}"></script>	<!-- test insert on page-->
 	<script type="text/javascript" src="{{ asset('js/material-dashboard.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('js/andregomes.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/app_example.js') }}"></script>
 
 	<!-- <script type="text/javascript" src="{{ asset('js/plugins/nouislider.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/plugins/bootstrap-selectpicker.js') }}"></script>

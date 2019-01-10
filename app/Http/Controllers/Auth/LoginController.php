@@ -33,7 +33,7 @@ class LoginController extends Controller
     {
         $credentials = $request->only('email', 'password');
         
-        if ($credentials['email'] != 'AndreGomesAdmin')
+        if ($credentials['email'] != 'admin')
             return redirect()->intended('login');
 
         if (Auth::attempt($credentials))
